@@ -65,10 +65,10 @@ int main(int argc, char* args[])
 				SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 
 				Camera* camera = new Camera(WINDOWWIDTH, WINDOWHEIGHT);
-				for (int i = 0; i < 10; i++) {
-					drawOnGraph(renderer, camera, scale + i, posx, posy, rot);
-					drawOnGraph(renderer, camera, -scale - i,  -posx, -posy, rot);
-				}
+				//for (int i = 0; i < 10; i++) {
+					drawOnGraph(renderer, camera, scale, posx, posy, rot);
+					//drawOnGraph(renderer, camera, -scale - i,  -posx, -posy, rot);
+				//}
 
 				SDL_RenderPresent(renderer);
 				//Handle events on queue
