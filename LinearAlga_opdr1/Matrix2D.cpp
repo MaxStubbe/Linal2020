@@ -56,6 +56,20 @@ Matrix2D Matrix2D::operator*(const Matrix2D& other)
 	return matrix;
 }
 
+Vector2D Matrix2D::operator*(const Vector2D& other)
+{
+	float other_vector[3] = { other.x, other.y, 1 };
+	float vector_[3] = {0,0,0};
+
+	//For each row
+	for (int row = 0; row < 3; ++row) {
+		for (int size = 0; size < 3; ++size) {
+			vector_[row] += (matrix_[row][size] * other_vector[size]);
+		}
+	}
+	return Vector2D(vector_[0],vector_[1]);
+}
+
 Matrix2D Matrix2D::operator*(const float& scalar)
 {
 	Matrix2D matrix;
