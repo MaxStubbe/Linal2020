@@ -21,11 +21,6 @@ void Object2D::draw(SDL_Renderer& renderer)
 	SDL_RenderDrawLines(&renderer, &sdl_points[0], 5);
 }
 
-void Object2D::update()
-{
-
-}
-
 void Object2D::set_color(Color color)
 {
 	//Set the color of this object.

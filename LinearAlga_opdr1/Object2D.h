@@ -19,7 +19,7 @@ public:
 
 	void draw(SDL_Renderer& renderer);
 
-	void update();
+	virtual void update() = 0;
 
 	void set_color(Color color);
 
