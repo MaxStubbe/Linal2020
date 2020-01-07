@@ -33,9 +33,11 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Cube2D.cpp" />
     <ClCompile Include="Vector2D.cpp">
       <Filter>Calculations</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube2D.cpp">
+      <Filter>Objects\CustomObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +65,11 @@
     <ClInclude Include="Color.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Cube2D.h" />
+    <ClInclude Include="Cube2D.h">
+      <Filter>Objects\CustomObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic_Matrices.h">
+      <Filter>Calculations</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

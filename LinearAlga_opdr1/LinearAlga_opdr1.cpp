@@ -8,6 +8,7 @@
 #include <string>
 #include "Scene.h"
 #include "Cube2D.h"
+#include "Basic_Matrices.h"
 
 //void drawOnGraph(SDL_Renderer* renderer, Camera* camera, float scale, float posx, float posy, float rot) {
 //
@@ -67,25 +68,9 @@ int main(int argc, char* args[])
 
 			Matrix2D scale_times_half_matrix = Matrix2D() / 2;
 
-			float degrees = 1;
+			Matrix2D rotate_right_matrix = get_rotation_matrix_degrees(1);
 
-			float radians = degrees * M_PI / 180;
-
-			float matrix[3][3] = {
-				{cos(radians),-sin(radians),0},
-				{sin(radians),cos(radians),0},
-				{0,0,1},
-			};
-
-			float matrix2[3][3] = {
-				{cos(-radians),-sin(-radians),0},
-				{sin(-radians),cos(-radians),0},
-				{0,0,1},
-			};
-
-			Matrix2D rotate_right_matrix = Matrix2D(matrix);
-
-			Matrix2D rotate_left_matrix = Matrix2D(matrix2);
+			Matrix2D rotate_left_matrix = get_rotation_matrix_degrees(-1);
 
 			//While application is running
 			while (!quit)
