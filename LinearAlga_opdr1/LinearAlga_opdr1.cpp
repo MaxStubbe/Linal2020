@@ -67,6 +67,25 @@ int main(int argc, char* args[])
 
 			Matrix2D scale_times_half_matrix = Matrix2D() / 2;
 
+			float degrees = 1;
+
+			float radians = degrees * M_PI / 180;
+
+			float matrix[3][3] = {
+				{cos(radians),-sin(radians),0},
+				{sin(radians),cos(radians),0},
+				{0,0,1},
+			};
+
+			float matrix2[3][3] = {
+				{cos(-radians),-sin(-radians),0},
+				{sin(-radians),cos(-radians),0},
+				{0,0,1},
+			};
+
+			Matrix2D rotate_right_matrix = Matrix2D(matrix);
+
+			Matrix2D rotate_left_matrix = Matrix2D(matrix2);
 
 			//While application is running
 			while (!quit)
@@ -91,6 +110,12 @@ int main(int argc, char* args[])
 							}
 							if (key == "G") {
 								cube->do_matrix(scale_times_half_matrix);
+							}
+							if (key == "R") {
+								cube->do_matrix(rotate_right_matrix);
+							}
+							if (key == "T") {
+								cube->do_matrix(rotate_left_matrix);
 							}
 							break;
 						}

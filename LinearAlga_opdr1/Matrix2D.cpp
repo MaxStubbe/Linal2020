@@ -5,6 +5,15 @@ Matrix2D::Matrix2D()
 {
 }
 
+Matrix2D::Matrix2D(float matrix[3][3])
+{
+	for (int row = 0; row < 3; ++row) {
+		for (int collum = 0; collum < 3; ++collum) {
+			matrix_[row][collum] = matrix[row][collum];
+		}
+	}
+}
+
 Matrix2D Matrix2D::operator+(const Matrix2D& other)
 {
 	Matrix2D matrix;

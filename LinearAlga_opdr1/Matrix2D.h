@@ -12,6 +12,7 @@ public:
 		{0,0,1}
 	};
 	Matrix2D();
+	Matrix2D(float matrix[3][3]);
 	Matrix2D operator+(const Matrix2D& other);
 	Matrix2D operator-(const Matrix2D& other);
 	Matrix2D operator*(const Matrix2D& other); 
