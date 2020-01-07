@@ -8,7 +8,7 @@
 class Scene
 {
 	private:
-		std::vector<Object2D> objects_;
+		std::vector<Object2D*> objects_;
 
 		Camera camera_;
 
@@ -17,7 +17,9 @@ class Scene
 	public:
 		Scene(SDL_Renderer& renderer);
 
-		void add_obect(Object2D object);
+		~Scene();
+
+		void add_obect(Object2D* object);
 
 		void draw();
 
