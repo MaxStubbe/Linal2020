@@ -6,6 +6,7 @@
 #include <cmath>
 #include "Camera.h"
 #include <string>
+#include "Scene.h"
 
 void drawOnGraph(SDL_Renderer* renderer, Camera* camera, float scale, float posx, float posy, float rot) {
 
@@ -32,7 +33,7 @@ void drawOnGraph(SDL_Renderer* renderer, Camera* camera, float scale, float posx
 	Vector2D d = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(10, 40))));
 
 	SDL_Point points[5] = {
-		a.getPoint(camera), b.getPoint(camera),c.getPoint(camera),d.getPoint(camera), a.getPoint(camera)
+		a.get_sdl_point(), b.get_sdl_point(),c.get_sdl_point(),d.get_sdl_point(), a.get_sdl_point()
 	};
 
 	SDL_RenderDrawLines(renderer, points, 5);
@@ -53,6 +54,14 @@ int main(int argc, char* args[])
 			//Main loop flag
 			bool quit = false;
 
+			//Scene
+			Scene scene = Scene(*renderer);
+
+
+
+
+
+
 			//Event handler
 			SDL_Event event;
 
@@ -66,7 +75,7 @@ int main(int argc, char* args[])
 
 				Camera* camera = new Camera(WINDOWWIDTH, WINDOWHEIGHT);
 				//for (int i = 0; i < 10; i++) {
-					drawOnGraph(renderer, camera, scale, posx, posy, rot);
+					//drawOnGraph(renderer, camera, scale, posx, posy, rot);
 					//drawOnGraph(renderer, camera, -scale - i,  -posx, -posy, rot);
 				//}
 
@@ -139,5 +148,3 @@ int main(int argc, char* args[])
 	}
 	return 1;
 }
-
-

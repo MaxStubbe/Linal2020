@@ -160,10 +160,17 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="LinearAlga_opdr1.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Matrix2D.cpp" />
+    <ClCompile Include="Object2D.cpp" />
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Matrix2D.h" />
+    <ClInclude Include="Object2D.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Vector3D.h" />
   </ItemGroup>

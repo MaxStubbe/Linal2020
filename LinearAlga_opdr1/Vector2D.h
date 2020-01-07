@@ -13,21 +13,26 @@ public:
 
 	float x;
 	float y;
-	const int WINDOWWIDTH = 640;
-	const int WINDOWHEIGHT = 480;
 
 	Vector2D() {
 		this->x = 0;
 		this->y = 0;
 	};
+
 	Vector2D(float x1, float y1) {
-		this->x = x1;
-		this->y = y1;
+		x = x1;
+		y = y1;
 	};
-	SDL_Point getPoint(Camera* camera) {
-		return { (int)this->x + camera->x , camera->y - (int)this->y };
-		//return { (int) this->x + (WINDOWWIDTH/2) , (WINDOWHEIGHT/2) - (int) this->y };
+
+	Vector2D(const Vector2D& p2) {
+		x = p2.x;
+		y = p2.y;
+	}
+
+	SDL_Point get_sdl_point() {
+		return { (int)x , (int)y };
 	};
+
 	Vector2D operator+(const Vector2D& other)
 	{
 		Vector2D vec;
