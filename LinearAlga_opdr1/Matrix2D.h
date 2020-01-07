@@ -16,8 +16,9 @@ public:
 	Matrix2D operator+(const Matrix2D& other);
 	Matrix2D operator-(const Matrix2D& other);
 	Matrix2D operator*(const Matrix2D& other);
+	Matrix2D operator*(const float& scalar);
+	Matrix2D operator/(const float& scalar);
 	float* operator[](int index);
-
 };
 
 #endif
