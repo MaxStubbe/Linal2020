@@ -25,6 +25,8 @@ class Scene
 
 		void update();
 
+		Camera& getCamera() { return camera_; };
+
 };
 
 

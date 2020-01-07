@@ -4,74 +4,22 @@
 #include <cmath>
 #include <SDL.h>
 #include <SDL_main.h>
-#include "Matrix.h"
 #include "Camera.h"
+#include "Matrix2D.h"
 
 class Vector2D
 {
 public:
-
 	float x;
 	float y;
-
-	Vector2D() {
-		this->x = 0;
-		this->y = 0;
-	};
-
-	Vector2D(float x1, float y1) {
-		x = x1;
-		y = y1;
-	};
-
-	Vector2D(const Vector2D& p2) {
-		x = p2.x;
-		y = p2.y;
-	}
-
-	SDL_Point get_sdl_point() {
-		return { (int)x , (int)y };
-	};
-
-	Vector2D operator+(const Vector2D& other)
-	{
-		Vector2D vec;
-		vec.x = x + other.x;
-		vec.y = y + other.y;
-		return vec;
-	};
-	Vector2D operator-(const Vector2D& other)
-	{
-		Vector2D vec;
-		vec.x = x - other.x;
-		vec.y = y - other.y;
-		return vec;
-	};
-	Vector2D operator*(const float scalair) {
-		Vector2D vec;
-		vec.x = x * scalair;
-		vec.y = y * scalair;
-		return vec;
-	};
-	Vector2D operator*(const Matrix& other)
-	{
-		float newX;
-		float newY;
-
-		if (other.collumns >= 1) {
-			newX = ((other.x[0] * x) + (other.x[1] * y));
-			newY = ((other.y[0] * x) + (other.y[1] * y));
-			if (other.collumns > 2) {
-				newX += (x * other.x[2]);
-				newY += (y * other.y[2]);
-			}
-
-			return Vector2D(newX, newY);
-		}
-		else {
-			throw "Matrix and Vector can't multiply";
-		}
-	};
+	Vector2D();
+	Vector2D(float x1, float y1);
+	Vector2D(const Vector2D& p2);
+	SDL_Point get_sdl_point();
+	Vector2D operator+(const Vector2D& other);
+	Vector2D operator-(const Vector2D& other);
+	Vector2D operator*(const float scalair);	
+	Vector2D operator*(const Matrix2D& other);
 };
 
 #endif

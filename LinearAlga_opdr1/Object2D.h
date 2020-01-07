@@ -8,13 +8,13 @@
 
 class Object2D
 {
-private:
+protected:
 	std::vector<Vector2D> points_;
-
-	Matrix2D scale_matrix;
 
 	Color color_ = Color{255,255,255};
 public:
+	Object2D();
+
 	Object2D(std::vector<Vector2D> points);
 
 	void draw(SDL_Renderer& renderer);
@@ -22,6 +22,8 @@ public:
 	virtual void update() = 0;
 
 	void set_color(Color color);
+
+	void do_matrix(const Matrix2D& matrix);
 
 };
 #endif

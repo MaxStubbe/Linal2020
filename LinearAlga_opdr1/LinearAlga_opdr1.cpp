@@ -7,37 +7,38 @@
 #include "Camera.h"
 #include <string>
 #include "Scene.h"
+#include "Cube2D.h"
 
-void drawOnGraph(SDL_Renderer* renderer, Camera* camera, float scale, float posx, float posy, float rot) {
-
-	float rotation =  M_PI * rot;
-
-	Matrix scaleMatrix = Matrix({ scale,0 }, { 0,scale }) ;
-	Matrix translationMatrix1 = Matrix({ 1,0,-posx }, { 0,1,-posy }, { 0,0,1 });
-	Matrix translationMatrix2 = Matrix({ 1,0,posx }, { 0,1,posy }, { 0,0,1 });
-	Matrix rotationMatrix = Matrix({ cos(rotation), -sin(rotation), 0 }, { sin(rotation), cos(rotation), 0 }, { 0 , 0, 1 });
-
-	const int WINDOWWIDTH = 640;
-	const int WINDOWHEIGHT = 480;
-	SDL_RenderDrawLine(renderer, camera->x, 0, camera->x, WINDOWHEIGHT);
-	SDL_RenderDrawLine(renderer, 0, camera->y, WINDOWWIDTH, camera->y);
-
-	/*Vector2D a = translationMatrix2 * Vector2D(10, 10);
-	Vector2D b = translationMatrix2 * Vector2D(40, 10);
-	Vector2D c = translationMatrix2 * Vector2D(40, 40);
-	Vector2D d = translationMatrix2 * Vector2D(10, 40);*/
-
-	Vector2D a = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(10, 10))));
-	Vector2D b = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(40, 10))));
-	Vector2D c = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(40, 40))));
-	Vector2D d = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(10, 40))));
-
-	SDL_Point points[5] = {
-		a.get_sdl_point(), b.get_sdl_point(),c.get_sdl_point(),d.get_sdl_point(), a.get_sdl_point()
-	};
-
-	SDL_RenderDrawLines(renderer, points, 5);
-}
+//void drawOnGraph(SDL_Renderer* renderer, Camera* camera, float scale, float posx, float posy, float rot) {
+//
+//	float rotation =  M_PI * rot;
+//
+//	Matrix scaleMatrix = Matrix({ scale,0 }, { 0,scale }) ;
+//	Matrix translationMatrix1 = Matrix({ 1,0,-posx }, { 0,1,-posy }, { 0,0,1 });
+//	Matrix translationMatrix2 = Matrix({ 1,0,posx }, { 0,1,posy }, { 0,0,1 });
+//	Matrix rotationMatrix = Matrix({ cos(rotation), -sin(rotation), 0 }, { sin(rotation), cos(rotation), 0 }, { 0 , 0, 1 });
+//
+//	const int WINDOWWIDTH = 640;
+//	const int WINDOWHEIGHT = 480;
+//	SDL_RenderDrawLine(renderer, camera->x, 0, camera->x, WINDOWHEIGHT);
+//	SDL_RenderDrawLine(renderer, 0, camera->y, WINDOWWIDTH, camera->y);
+//
+//	/*Vector2D a = translationMatrix2 * Vector2D(10, 10);
+//	Vector2D b = translationMatrix2 * Vector2D(40, 10);
+//	Vector2D c = translationMatrix2 * Vector2D(40, 40);
+//	Vector2D d = translationMatrix2 * Vector2D(10, 40);*/
+//
+//	Vector2D a = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(10, 10))));
+//	Vector2D b = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(40, 10))));
+//	Vector2D c = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(40, 40))));
+//	Vector2D d = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(10, 40))));
+//
+//	SDL_Point points[5] = {
+//		a.get_sdl_point(), b.get_sdl_point(),c.get_sdl_point(),d.get_sdl_point(), a.get_sdl_point()
+//	};
+//
+//	SDL_RenderDrawLines(renderer, points, 5);
+//}
 
 int main(int argc, char* args[])
 {
@@ -56,28 +57,24 @@ int main(int argc, char* args[])
 
 			//Scene
 			Scene scene = Scene(*renderer);
-
-
-
-
-
+			Cube2D* cube = new Cube2D(50);
+			scene.add_obect(cube);
 
 			//Event handler
 			SDL_Event event;
+
+			Matrix2D scale_times_two_matrix = Matrix2D() * 2;
+
+			Matrix2D scale_times_half_matrix = Matrix2D() / 2;
+
 
 			//While application is running
 			while (!quit)
 			{
 				SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 				SDL_RenderClear(renderer);
-
-				SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-
-				Camera* camera = new Camera(WINDOWWIDTH, WINDOWHEIGHT);
-				//for (int i = 0; i < 10; i++) {
-					//drawOnGraph(renderer, camera, scale, posx, posy, rot);
-					//drawOnGraph(renderer, camera, -scale - i,  -posx, -posy, rot);
-				//}
+				
+				scene.draw();
 
 				SDL_RenderPresent(renderer);
 				//Handle events on queue
@@ -89,54 +86,22 @@ int main(int argc, char* args[])
 						case SDL_KEYDOWN:
 						{
 							std::string key(SDL_GetKeyName(event.key.keysym.sym));
-
-							if (key == "W") {
-								WINDOWHEIGHT -= 5;
+							if (key == "F") {
+								cube->do_matrix(scale_times_two_matrix);
 							}
-							if (key == "A") {
-								WINDOWWIDTH -= 5;
+							if (key == "G") {
+								cube->do_matrix(scale_times_half_matrix);
 							}
-							if (key == "S") {
-								WINDOWHEIGHT += 5;
-							}
-							if (key == "D") {
-								WINDOWWIDTH += 5;
-							}
-
-							if (key == "K") {
-								scale += 0.5;
-							}
-							if (key == "J") {
-								scale -= 0.5;
-							}
-
-							if (key == "X") {
-								rot += 0.25;
-							}
-							if (key == "Z") {
-								rot -= 0.25;
-							}
-
-							if (key == "Up") {
-								posy += 1;
-							}
-							if (key == "Left") {
-								posx -= 1;
-							}
-							if (key == "Down") {
-								posy -= 1;
-							}
-							if (key == "Right") {
-								posx += 1;
-							}
-
-							
-							std::cout << key << std::endl;
 							break;
 						}
 					}
 				}
 			}
+
+
+
+
+
 
 			if (renderer) {
 				SDL_DestroyRenderer(renderer);

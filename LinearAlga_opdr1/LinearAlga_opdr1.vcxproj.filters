@@ -10,6 +10,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{54caf233-8552-4f8b-bc13-55542f3d36cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\CustomObjects">
+      <UniqueIdentifier>{af4a21ad-6172-481f-8b29-9e8d2e8e380e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object2D.cpp">
@@ -29,6 +32,10 @@
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube2D.cpp" />
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Calculations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,5 +63,6 @@
     <ClInclude Include="Color.h">
       <Filter>Objects</Filter>
     </ClInclude>
+    <ClInclude Include="Cube2D.h" />
   </ItemGroup>
 </Project>
