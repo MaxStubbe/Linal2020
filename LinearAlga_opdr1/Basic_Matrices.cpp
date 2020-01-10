@@ -61,13 +61,25 @@ Matrix3D get_rotation_matrix_3d_z(float degrees)
 	return Matrix3D(matrix);
 }
 
-Matrix3D get_rotation_matrix_3d_axis(Vector3D axis, float degrees)
+Matrix3D get_rotation_matrix_3d_axis(Vector3D axis_, float degrees)
 {
+	Vector3D axis = axis_.normalize();
 	float rad = degrees_to_radians(degrees);
 	float matrix[4][4] = {
 				{ (cos(rad)+((axis.x * axis.x)*(1-cos(rad)))), (((axis.x * axis.y)*(1 - cos(rad)))-(axis.z * sin(rad))), (((axis.x * axis.z)*(1-cos(rad)))+(axis.y*sin(rad))), 0},
 				{ (((axis.y * axis.x) * (1 - cos(rad))) + (axis.z * sin(rad))),(cos(rad) + ((axis.y * axis.y) * (1 - cos(rad)))),(((axis.x * axis.z) * (1 - cos(rad))) - (axis.x * sin(rad))),0},
 				{ (((axis.z * axis.x) * (1 - cos(rad))) - (axis.y * sin(rad))),(((axis.z * axis.y) * (1 - cos(rad))) + (axis.x * sin(rad))),(cos(rad) + ((axis.z * axis.z) * (1 - cos(rad)))),0},
+				{0,0,0,1}
+	};
+	return Matrix3D(matrix);
+}
+
+Matrix3D get_move_matrix_3d(Vector3D position)
+{
+	float matrix[4][4] = {
+				{1,0,0,position.x},
+				{0,1,0,position.y},
+				{0,0,1,position.z},
 				{0,0,0,1}
 	};
 	return Matrix3D(matrix);

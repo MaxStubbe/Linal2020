@@ -31,7 +31,7 @@ int main(int argc, char* args[])
 
 			//Scene3D
 			Scene3D scene3d = Scene3D(*renderer);
-			PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(),1);
+			PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1);
 			scene3d.add_obect(cube3d);
 			Cube3D* cube3d2 = new Cube3D(scene3d.getCamera(), Vector3D(5,0,0),1);
 			scene3d.add_obect(cube3d2);

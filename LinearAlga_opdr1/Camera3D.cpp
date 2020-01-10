@@ -55,8 +55,11 @@ void Camera3D::rotate_x(float degrees)
 	Vector3D dir = get_direction().normalize();
 	Vector3D right = up_.cross_product(dir).normalize();
 	Vector3D up = dir.cross_product(right).normalize();
+	//move the points to the origin
+	Vector3D point = lookat_ - position_;//Translate lookat to be relative to origin.
+	Matrix3D matrix = get_rotation_matrix_3d_axis(up, degrees);
 
-	lookat_ = ((lookat_) * get_rotation_matrix_3d_axis(up, degrees));
+	lookat_ = (point * matrix) + position_;
 }
 
 void Camera3D::rotate_y(float degrees)

@@ -20,4 +20,5 @@ Matrix3D get_rotation_matrix_3d_z(float degrees);
 
 Matrix3D get_rotation_matrix_3d_axis(Vector3D axis, float degrees);
 
+Matrix3D get_move_matrix_3d(Vector3D position);
 #endif
