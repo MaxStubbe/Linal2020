@@ -19,6 +19,25 @@ SDL_Point Vector2D::get_sdl_point() {
 	return { (int)x , (int)y };
 }
 
+Vector2D Vector2D::normalize()
+{
+	Vector2D vec;
+	float mag = magnitude();
+	vec.x = x / mag;
+	vec.y = y / mag;
+	return vec;
+}
+
+float Vector2D::magnitude()
+{
+	return sqrt(((x * x) + (y * y)));
+}
+
+float Vector2D::dot_product(const Vector2D& other)
+{
+	return ((x * other.x) + (y * other.y));
+}
+
 Vector2D Vector2D::operator+(const Vector2D& other)
 {
 	Vector2D vec;

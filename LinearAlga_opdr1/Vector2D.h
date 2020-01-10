@@ -15,6 +15,9 @@ public:
 	Vector2D(float x1, float y1);
 	Vector2D(const Vector2D& p2);
 	SDL_Point get_sdl_point();
+	Vector2D normalize();
+	float magnitude();
+	float dot_product(const Vector2D& other);//inproduct
 	Vector2D operator+(const Vector2D& other);
 	Vector2D operator-(const Vector2D& other);
 	Vector2D operator*(const float scalar);	

@@ -5,8 +5,6 @@
 
 class Cube2D : public Object2D
 {
-private:
-
 public:
 	Cube2D(Camera2D& camera, int size);
 	void update() override;

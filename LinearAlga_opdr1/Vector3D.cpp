@@ -27,6 +27,35 @@ SDL_Point Vector3D::get_sdl_point()
 	return SDL_Point();
 }
 
+Vector3D Vector3D::normalize()
+{
+	Vector3D vec;
+	float mag = magnitude();
+	vec.x = x / mag;
+	vec.y = y / mag;
+	vec.z = z / mag;
+	return vec;
+}
+
+float Vector3D::magnitude()
+{
+	return sqrt(((x * x) + (y * y) + (z * z)));
+}
+
+Vector3D Vector3D::cross_product(const Vector3D& other)
+{
+	Vector3D vec;
+	vec.x = ((y * other.z) - (z * other.y));
+	vec.y = ((z * other.x) - (x * other.z));
+	vec.z = ((x * other.y) - (y * other.x));
+	return vec;
+}
+
+float Vector3D::dot_product(const Vector3D& other)
+{
+	return ((x * other.x) + (y * other.y) + (z * other.z));
+}
+
 Vector3D Vector3D::operator+(const Vector3D& other)
 {
 	Vector3D vec;

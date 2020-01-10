@@ -4,18 +4,21 @@
 #include <vector>
 #include "Vector3D.h"
 #include "Color.h"
+#include "Camera3D.h"
 
 
 class Object3D
 {
 protected:
-	std::vector<Vector3D> points_;
+	Camera3D& camera_;
+
+	std::vector<std::vector<Vector3D>> points_;
 
 	Color color_ = Color{ 255,255,255 };
 public:
-	Object3D();
+	Object3D(Camera3D& camera);
 
-	Object3D(std::vector<Vector3D> points);
+	Object3D(Camera3D& camera, std::vector<std::vector<Vector3D>> points);
 
 	void draw(SDL_Renderer& renderer);
 
