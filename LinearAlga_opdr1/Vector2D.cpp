@@ -1,8 +1,8 @@
 #include "Vector2D.h"
 
 Vector2D::Vector2D() {
-	this->x = 0;
-	this->y = 0;
+	x = 0;
+	y = 0;
 }
 
 Vector2D::Vector2D(float x1, float y1) {
@@ -35,10 +35,10 @@ Vector2D Vector2D::operator-(const Vector2D& other)
 	return vec;
 }
 
-Vector2D Vector2D::operator*(const float scalair) {
+Vector2D Vector2D::operator*(const float scalar) {
 	Vector2D vec;
-	vec.x = x * scalair;
-	vec.y = y * scalair;
+	vec.x = x * scalar;
+	vec.y = y * scalar;
 	return vec;
 }
 

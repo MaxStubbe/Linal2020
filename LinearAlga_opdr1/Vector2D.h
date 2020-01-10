@@ -4,7 +4,6 @@
 #include <cmath>
 #include <SDL.h>
 #include <SDL_main.h>
-#include "Camera.h"
 #include "Matrix2D.h"
 
 class Vector2D
@@ -18,7 +17,7 @@ public:
 	SDL_Point get_sdl_point();
 	Vector2D operator+(const Vector2D& other);
 	Vector2D operator-(const Vector2D& other);
-	Vector2D operator*(const float scalair);	
+	Vector2D operator*(const float scalar);	
 	Vector2D operator*(const Matrix2D& other);
 };
 

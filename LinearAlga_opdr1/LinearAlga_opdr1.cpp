@@ -10,37 +10,6 @@
 #include "Cube2D.h"
 #include "Basic_Matrices.h"
 
-//void drawOnGraph(SDL_Renderer* renderer, Camera* camera, float scale, float posx, float posy, float rot) {
-//
-//	float rotation =  M_PI * rot;
-//
-//	Matrix scaleMatrix = Matrix({ scale,0 }, { 0,scale }) ;
-//	Matrix translationMatrix1 = Matrix({ 1,0,-posx }, { 0,1,-posy }, { 0,0,1 });
-//	Matrix translationMatrix2 = Matrix({ 1,0,posx }, { 0,1,posy }, { 0,0,1 });
-//	Matrix rotationMatrix = Matrix({ cos(rotation), -sin(rotation), 0 }, { sin(rotation), cos(rotation), 0 }, { 0 , 0, 1 });
-//
-//	const int WINDOWWIDTH = 640;
-//	const int WINDOWHEIGHT = 480;
-//	SDL_RenderDrawLine(renderer, camera->x, 0, camera->x, WINDOWHEIGHT);
-//	SDL_RenderDrawLine(renderer, 0, camera->y, WINDOWWIDTH, camera->y);
-//
-//	/*Vector2D a = translationMatrix2 * Vector2D(10, 10);
-//	Vector2D b = translationMatrix2 * Vector2D(40, 10);
-//	Vector2D c = translationMatrix2 * Vector2D(40, 40);
-//	Vector2D d = translationMatrix2 * Vector2D(10, 40);*/
-//
-//	Vector2D a = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(10, 10))));
-//	Vector2D b = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(40, 10))));
-//	Vector2D c = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(40, 40))));
-//	Vector2D d = (rotationMatrix * (scaleMatrix * (translationMatrix2 * Vector2D(10, 40))));
-//
-//	SDL_Point points[5] = {
-//		a.get_sdl_point(), b.get_sdl_point(),c.get_sdl_point(),d.get_sdl_point(), a.get_sdl_point()
-//	};
-//
-//	SDL_RenderDrawLines(renderer, points, 5);
-//}
-
 int main(int argc, char* args[])
 {
 	if (SDL_Init(SDL_INIT_VIDEO) == 0) {
@@ -107,12 +76,6 @@ int main(int argc, char* args[])
 					}
 				}
 			}
-
-
-
-
-
-
 			if (renderer) {
 				SDL_DestroyRenderer(renderer);
 			}

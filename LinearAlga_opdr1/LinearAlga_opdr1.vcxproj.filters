@@ -10,20 +10,26 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{54caf233-8552-4f8b-bc13-55542f3d36cc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Objects\CustomObjects">
+    <Filter Include="Calculations\Matrix">
+      <UniqueIdentifier>{f2a595e3-e5f8-4198-a0a2-d500bea1afdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Calculations\Vector">
+      <UniqueIdentifier>{6609b4db-8c99-4729-ad59-b220b03b80d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\2D">
+      <UniqueIdentifier>{a038570d-9d49-4856-819e-56e9539e408d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\2D\CustomObjects">
       <UniqueIdentifier>{af4a21ad-6172-481f-8b29-9e8d2e8e380e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\3D">
+      <UniqueIdentifier>{a4f94bfb-398f-41ba-94ad-4aa6114179c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\3D\CustomObjects">
+      <UniqueIdentifier>{1a1e2d1d-6350-47bc-8cbf-eb02e3183980}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Object2D.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>Calculations</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix2D.cpp">
-      <Filter>Calculations</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
@@ -33,29 +39,29 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Calculations\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix2D.cpp">
+      <Filter>Calculations\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3D.cpp">
+      <Filter>Calculations\Matrix</Filter>
+    </ClCompile>
     <ClCompile Include="Vector2D.cpp">
-      <Filter>Calculations</Filter>
+      <Filter>Calculations\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>Calculations\Vector</Filter>
     </ClCompile>
     <ClCompile Include="Cube2D.cpp">
-      <Filter>Objects\CustomObjects</Filter>
+      <Filter>Objects\2D\CustomObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Object2D.cpp">
+      <Filter>Objects\2D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Object2D.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2D.h">
-      <Filter>Calculations</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3D.h">
-      <Filter>Calculations</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix2D.h">
-      <Filter>Calculations</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>Calculations</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -65,11 +71,29 @@
     <ClInclude Include="Color.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Cube2D.h">
-      <Filter>Objects\CustomObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Basic_Matrices.h">
       <Filter>Calculations</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Calculations\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2D.h">
+      <Filter>Calculations\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3D.h">
+      <Filter>Calculations\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Calculations\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>Calculations\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube2D.h">
+      <Filter>Objects\2D\CustomObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object2D.h">
+      <Filter>Objects\2D</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
