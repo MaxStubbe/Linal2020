@@ -13,8 +13,9 @@ public:
 	float x;
 	float y;
 	float z;
+	float w;
 	Vector3D();
-	Vector3D(float x1, float y1, float z1);
+	Vector3D(float x1, float y1, float z1, float w1 = 0);
 	Vector3D(const Vector3D& p2);
 	SDL_Point get_sdl_point();
 	Vector3D normalize();

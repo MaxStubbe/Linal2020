@@ -158,7 +158,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera2D.cpp" />
+    <ClCompile Include="Camera3D.cpp" />
     <ClCompile Include="Cube2D.cpp" />
+    <ClCompile Include="Cube3D.cpp" />
     <ClCompile Include="LinearAlga_opdr1.cpp" />
     <ClCompile Include="Matrix2D.cpp" />
     <ClCompile Include="Matrix3D.cpp" />
@@ -171,8 +173,10 @@
   <ItemGroup>
     <ClInclude Include="Basic_Matrices.h" />
     <ClInclude Include="Camera2D.h" />
+    <ClInclude Include="Camera3D.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cube2D.h" />
+    <ClInclude Include="Cube3D.h" />
     <ClInclude Include="Matrix2D.h" />
     <ClInclude Include="Matrix3D.h" />
     <ClInclude Include="Object2D.h" />

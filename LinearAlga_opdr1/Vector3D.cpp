@@ -5,13 +5,15 @@ Vector3D::Vector3D()
 	x = 0;
 	y = 0;
 	z = 0;
+	w = 1;
 }
 
-Vector3D::Vector3D(float x1, float y1, float z1)
+Vector3D::Vector3D(float x1, float y1, float z1, float w1)
 {
 	x = x1;
 	y = y1;
 	z = z1;
+	w = w1;
 }
 
 Vector3D::Vector3D(const Vector3D& p2)
@@ -19,6 +21,7 @@ Vector3D::Vector3D(const Vector3D& p2)
 	x = p2.x;
 	y = p2.y;
 	z = p2.z;
+	w = p2.w;
 }
 
 SDL_Point Vector3D::get_sdl_point()
@@ -93,5 +96,5 @@ Vector3D Vector3D::operator*(const Matrix3D& other)
 			vector_[row] += (other.matrix_[row][size] * other_vector[size]);
 		}
 	}
-	return Vector3D(vector_[0], vector_[1],vector_[2]);
+	return Vector3D(vector_[0], vector_[1],vector_[2], vector_[3]);
 }

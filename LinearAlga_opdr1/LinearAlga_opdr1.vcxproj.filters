@@ -63,6 +63,12 @@
     <ClCompile Include="Camera2D.cpp">
       <Filter>Scenes\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="Cube3D.cpp">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera3D.cpp">
+      <Filter>Scenes\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -96,6 +102,12 @@
       <Filter>Objects\3D</Filter>
     </ClInclude>
     <ClInclude Include="Camera2D.h">
+      <Filter>Scenes\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube3D.h">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera3D.h">
       <Filter>Scenes\Camera</Filter>
     </ClInclude>
   </ItemGroup>
