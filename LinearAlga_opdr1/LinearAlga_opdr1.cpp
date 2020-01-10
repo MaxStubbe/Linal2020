@@ -10,6 +10,7 @@
 #include "Basic_Matrices.h"
 #include "Scene3D.h"
 #include "Cube3D.h"
+#include "PulsingCube3D.h"
 
 int main(int argc, char* args[])
 {
@@ -28,13 +29,13 @@ int main(int argc, char* args[])
 
 			//Scene3D
 			Scene3D scene3d = Scene3D(*renderer);
-			Cube3D* cube3d = new Cube3D(scene3d.getCamera(), Vector3D(),1);
+			PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(),1);
 			scene3d.add_obect(cube3d);
 			Cube3D* cube3d2 = new Cube3D(scene3d.getCamera(), Vector3D(5,0,0),1);
 			scene3d.add_obect(cube3d2);
-			scene3d.getCamera().position_.x = -250;
-			scene3d.getCamera().position_.y = -250;
-			scene3d.getCamera().position_.z = -250;
+			scene3d.getCamera().position_.x = -750;
+			scene3d.getCamera().position_.y = -750;
+			scene3d.getCamera().position_.z = -750;
 
 			//Event handler
 			SDL_Event event;
@@ -52,6 +53,7 @@ int main(int argc, char* args[])
 			{
 				SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 				SDL_RenderClear(renderer);
+				scene3d.update();
 				scene3d.getCamera().set_matrix();
 				scene3d.draw();
 

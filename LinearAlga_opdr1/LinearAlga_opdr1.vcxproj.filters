@@ -7,9 +7,6 @@
     <Filter Include="Calculations">
       <UniqueIdentifier>{d31369a6-906f-4d29-b415-6079e49f1a6f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes">
-      <UniqueIdentifier>{54caf233-8552-4f8b-bc13-55542f3d36cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Calculations\Matrix">
       <UniqueIdentifier>{f2a595e3-e5f8-4198-a0a2-d500bea1afdf}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,12 @@
     </Filter>
     <Filter Include="Camera">
       <UniqueIdentifier>{ea32ce50-f4b3-4ed8-aad6-e36c670e3cb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{ed352183-9e53-42ac-8148-76d39a27eb50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{54caf233-8552-4f8b-bc13-55542f3d36cc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Scenes\2D">
       <UniqueIdentifier>{dbea3585-9353-4c1b-8b87-dfe91ef7d6d5}</UniqueIdentifier>
@@ -76,17 +79,17 @@
     <ClCompile Include="Scene3D.cpp">
       <Filter>Scenes\3D</Filter>
     </ClCompile>
+    <ClCompile Include="PulsingCube3D.cpp">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
     <ClCompile Include="Basic_Matrices.cpp">
-      <Filter>Calculations</Filter>
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Basic_Matrices.h">
-      <Filter>Calculations</Filter>
-    </ClInclude>
     <ClInclude Include="Matrix2D.h">
       <Filter>Calculations\Matrix</Filter>
     </ClInclude>
@@ -122,6 +125,18 @@
     </ClInclude>
     <ClInclude Include="Scene3D.h">
       <Filter>Scenes\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="PulsingCube3D.h">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic_Matrices.h">
+      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

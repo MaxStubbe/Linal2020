@@ -18,3 +18,8 @@ Matrix2D get_rotation_matrix_degrees(float degrees) {
 	};
 	return Matrix2D(matrix);
 }
+
+Matrix3D get_scale_matrix_3d(float scale)
+{
+	return Matrix3D() * scale;
+}
