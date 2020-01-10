@@ -106,18 +106,18 @@ int main(int argc, char* args[])
 							}
 
 
-							if (key == "I") {//turn up
-								scene3d.getCamera().rotate_x(0.1);
+							if (key == "J") {//turn up
+								scene3d.getCamera().rotate_x(1);
 							}
-							if (key == "K") {//turn down
-								scene3d.getCamera().rotate_x(-0.1);
+							if (key == "L") {//turn down
+								scene3d.getCamera().rotate_x(-1);
 							}
 
-							if (key == "J") {//turn left
-								scene3d.getCamera().rotate_y(0.1);
+							if (key == "K") {//turn left
+								scene3d.getCamera().rotate_y(1);
 							}
-							if (key == "L") {//turn right
-								scene3d.getCamera().rotate_y(-0.1);
+							if (key == "I") {//turn right
+								scene3d.getCamera().rotate_y(-1);
 							}
 
 							break;

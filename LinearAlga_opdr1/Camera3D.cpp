@@ -52,10 +52,18 @@ Vector3D Camera3D::get_direction()
 
 void Camera3D::rotate_x(float degrees)
 {
-	lookat_ = lookat_ * get_rotation_matrix_3d_axis(get_direction(), degrees);
+	Vector3D dir = get_direction().normalize();
+	Vector3D right = up_.cross_product(dir).normalize();
+	Vector3D up = dir.cross_product(right).normalize();
+
+	lookat_ = ((lookat_) * get_rotation_matrix_3d_axis(up, degrees));
 }
 
 void Camera3D::rotate_y(float degrees)
 {
-	lookat_ = lookat_ * get_rotation_matrix_3d_axis(get_direction(), degrees);
+	Vector3D dir = get_direction().normalize();
+	Vector3D right = up_.cross_product(dir).normalize();
+	Vector3D up = dir.cross_product(right).normalize();
+
+	lookat_ = ((lookat_)*get_rotation_matrix_3d_axis(right, degrees));
 }
