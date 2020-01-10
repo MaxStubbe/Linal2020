@@ -35,7 +35,9 @@ int main(int argc, char* args[])
 			Scene3D scene3d = Scene3D(*renderer);
 			Cube3D* cube3d = new Cube3D(scene3d.getCamera(), 50);
 			scene3d.add_obect(cube3d);
-
+			scene3d.getCamera().position_.x = -50;
+			scene3d.getCamera().position_.y = -50;
+			scene3d.getCamera().position_.z = -50;
 
 			//Event handler
 			SDL_Event event;

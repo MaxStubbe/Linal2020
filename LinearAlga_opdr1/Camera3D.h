@@ -8,7 +8,7 @@ class Camera3D
 public:
 	Vector3D position_;
 
-	Vector3D lookat_;
+	Vector3D lookat_ = Vector3D(0,0,0);
 
 	Vector3D up_ = Vector3D(0, 1, 0);
 
