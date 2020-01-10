@@ -5,9 +5,11 @@
 #include <cmath>
 #include "Camera2D.h"
 #include <string>
-#include "Scene.h"
+#include "Scene2D.h"
 #include "Cube2D.h"
 #include "Basic_Matrices.h"
+#include "Scene3D.h"
+#include "Cube3D.h"
 
 int main(int argc, char* args[])
 {
@@ -24,29 +26,39 @@ int main(int argc, char* args[])
 			//Main loop flag
 			bool quit = false;
 
-			//Scene
-			Scene scene = Scene(*renderer);
-			Cube2D* cube = new Cube2D(scene.getCamera() ,50);
-			scene.add_obect(cube);
+			//Scene3D
+			Scene2D scene2d = Scene2D(*renderer);
+			Cube2D* cube2d = new Cube2D(scene2d.getCamera() ,50);
+			scene2d.add_obect(cube2d);
+
+			//Scene3D
+			Scene3D scene3d = Scene3D(*renderer);
+			Cube3D* cube3d = new Cube3D(scene3d.getCamera(), 50);
+			scene3d.add_obect(cube3d);
+
 
 			//Event handler
 			SDL_Event event;
 
-			Matrix2D scale_times_two_matrix = Matrix2D() * 2;
+			Matrix3D scale_times_two_matrix = Matrix3D() * 2;
 
-			Matrix2D scale_times_half_matrix = Matrix2D() / 2;
+			Matrix3D scale_times_half_matrix = Matrix3D() / 2;
 
-			Matrix2D rotate_right_matrix = get_rotation_matrix_degrees(1);
+			//Matrix2D rotate_right_matrix = get_rotation_matrix_degrees(1);
 
-			Matrix2D rotate_left_matrix = get_rotation_matrix_degrees(-1);
+			//Matrix2D rotate_left_matrix = get_rotation_matrix_degrees(-1);
+
+
+			scene3d.getCamera().set_matrix();
+
 
 			//While application is running
 			while (!quit)
 			{
 				SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 				SDL_RenderClear(renderer);
-				
-				scene.draw();
+				scene3d.getCamera().set_matrix();
+				scene3d.draw();
 
 				SDL_RenderPresent(renderer);
 				//Handle events on queue
@@ -59,30 +71,40 @@ int main(int argc, char* args[])
 						{
 							std::string key(SDL_GetKeyName(event.key.keysym.sym));
 							if (key == "F") {
-								cube->do_matrix(scale_times_two_matrix);
+								cube3d->do_matrix(scale_times_two_matrix);
 							}
 							if (key == "G") {
-								cube->do_matrix(scale_times_half_matrix);
+								cube3d->do_matrix(scale_times_half_matrix);
 							}
-							if (key == "R") {
-								cube->do_matrix(rotate_right_matrix);
+							/*if (key == "R") {
+								cube3d->do_matrix(rotate_right_matrix);
 							}
 							if (key == "T") {
-								cube->do_matrix(rotate_left_matrix);
-							}
+								cube3d->do_matrix(rotate_left_matrix);
+							}*/
 
 							if (key == "W") {
-								scene.getCamera().position_.y -= 1;
+								scene3d.getCamera().position_.y -= 1;
 							}
 							if (key == "S") {
-								scene.getCamera().position_.y += 1;
+								scene3d.getCamera().position_.y += 1;
 							}
 							if (key == "A") {
-								scene.getCamera().position_.x -= 1;
+								scene3d.getCamera().position_.x -= 1;
 							}
 							if (key == "D") {
-								scene.getCamera().position_.x += 1;
+								scene3d.getCamera().position_.x += 1;
 							}
+
+							if (key == "Q") {
+								scene3d.getCamera().lookat_.x -= 1;
+							}
+							if (key == "E") {
+								scene3d.getCamera().lookat_.y += 1;
+							}
+
+
+
 
 							break;
 						}

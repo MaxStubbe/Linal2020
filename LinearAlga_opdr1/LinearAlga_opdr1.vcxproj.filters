@@ -28,17 +28,17 @@
     <Filter Include="Objects\3D\CustomObjects">
       <UniqueIdentifier>{1a1e2d1d-6350-47bc-8cbf-eb02e3183980}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes\Camera">
+    <Filter Include="Camera">
       <UniqueIdentifier>{ea32ce50-f4b3-4ed8-aad6-e36c670e3cb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\2D">
+      <UniqueIdentifier>{dbea3585-9353-4c1b-8b87-dfe91ef7d6d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\3D">
+      <UniqueIdentifier>{0690120e-41b3-4efb-ba70-12b1b6557e56}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinearAlga_opdr1.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="Matrix2D.cpp">
       <Filter>Calculations\Matrix</Filter>
     </ClCompile>
@@ -61,19 +61,26 @@
       <Filter>Objects\3D</Filter>
     </ClCompile>
     <ClCompile Include="Camera2D.cpp">
-      <Filter>Scenes\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="Cube3D.cpp">
       <Filter>Objects\3D\CustomObjects</Filter>
     </ClCompile>
     <ClCompile Include="Camera3D.cpp">
-      <Filter>Scenes\Camera</Filter>
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearAlga_opdr1.cpp" />
+    <ClCompile Include="Scene2D.cpp">
+      <Filter>Scenes\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene3D.cpp">
+      <Filter>Scenes\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic_Matrices.cpp">
+      <Filter>Calculations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="Color.h">
       <Filter>Objects</Filter>
     </ClInclude>
@@ -102,13 +109,19 @@
       <Filter>Objects\3D</Filter>
     </ClInclude>
     <ClInclude Include="Camera2D.h">
-      <Filter>Scenes\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="Cube3D.h">
       <Filter>Objects\3D\CustomObjects</Filter>
     </ClInclude>
     <ClInclude Include="Camera3D.h">
-      <Filter>Scenes\Camera</Filter>
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene2D.h">
+      <Filter>Scenes\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene3D.h">
+      <Filter>Scenes\3D</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

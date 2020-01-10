@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Basic_Matrices.cpp" />
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="Camera3D.cpp" />
     <ClCompile Include="Cube2D.cpp" />
@@ -166,7 +167,8 @@
     <ClCompile Include="Matrix3D.cpp" />
     <ClCompile Include="Object2D.cpp" />
     <ClCompile Include="Object3D.cpp" />
-    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Scene2D.cpp" />
+    <ClCompile Include="Scene3D.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
@@ -181,7 +183,8 @@
     <ClInclude Include="Matrix3D.h" />
     <ClInclude Include="Object2D.h" />
     <ClInclude Include="Object3D.h" />
-    <ClInclude Include="Scene.h" />
+    <ClInclude Include="Scene2D.h" />
+    <ClInclude Include="Scene3D.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Vector3D.h" />
   </ItemGroup>

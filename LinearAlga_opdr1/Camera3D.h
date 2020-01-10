@@ -12,7 +12,11 @@ public:
 
 	Vector3D up_ = Vector3D(0, 1, 0);
 
+	Matrix3D cam_matrix;
+
 	Camera3D(Vector3D position);
+
+	void set_matrix();
 
 	SDL_Point get_sdl_point(Vector3D point);
 
