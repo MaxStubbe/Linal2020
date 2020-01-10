@@ -80,20 +80,44 @@ int main(int argc, char* args[])
 
 
 
-							if (key == "Right") {
+							if (key == "Left") {
 								scene3d.getCamera().position_.x += 1;
+								scene3d.getCamera().lookat_.x += 1;
 							}
 							if (key == "Up") {
 								scene3d.getCamera().position_.y -= 1;
+								scene3d.getCamera().lookat_.y -= 1;
 							}
 							if (key == "Down") {
 								scene3d.getCamera().position_.y += 1;
+								scene3d.getCamera().lookat_.y += 1;
 							}
-							if (key == "Left") {
+							if (key == "Right") {
 								scene3d.getCamera().position_.x -= 1;
+								scene3d.getCamera().lookat_.x -= 1;
 							}
 							if (key == ",") {
-								scene3d.getCamera().rotate_x(1);
+								scene3d.getCamera().position_.z -= 1;
+								scene3d.getCamera().lookat_.z -= 1;
+							}
+							if (key == ".") {
+								scene3d.getCamera().position_.z += 1;
+								scene3d.getCamera().lookat_.z += 1;
+							}
+
+
+							if (key == "I") {//turn up
+								scene3d.getCamera().rotate_x(0.1);
+							}
+							if (key == "K") {//turn down
+								scene3d.getCamera().rotate_x(-0.1);
+							}
+
+							if (key == "J") {//turn left
+								scene3d.getCamera().rotate_y(0.1);
+							}
+							if (key == "L") {//turn right
+								scene3d.getCamera().rotate_y(-0.1);
 							}
 
 							break;
