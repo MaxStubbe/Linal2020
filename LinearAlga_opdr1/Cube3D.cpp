@@ -1,6 +1,6 @@
 #include "Cube3D.h"
 
-Cube3D::Cube3D(Camera3D& camera, int size) : Object3D(camera)
+Cube3D::Cube3D(Camera3D& camera, Vector3D position, int size) : Object3D(camera,position)
 {
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),

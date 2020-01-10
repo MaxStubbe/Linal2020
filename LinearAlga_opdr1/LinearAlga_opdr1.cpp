@@ -16,8 +16,8 @@ int main(int argc, char* args[])
 	if (SDL_Init(SDL_INIT_VIDEO) == 0) {
 		SDL_Window* window = NULL;
 		SDL_Renderer* renderer = NULL;
-		int WINDOWWIDTH = 640;
-		int WINDOWHEIGHT = 480;
+		int WINDOWWIDTH = 600;
+		int WINDOWHEIGHT = 600;
 		float scale = 1;
 		float posx = 0;
 		float posy = 0;
@@ -27,17 +27,14 @@ int main(int argc, char* args[])
 			bool quit = false;
 
 			//Scene3D
-			Scene2D scene2d = Scene2D(*renderer);
-			Cube2D* cube2d = new Cube2D(scene2d.getCamera() ,50);
-			scene2d.add_obect(cube2d);
-
-			//Scene3D
 			Scene3D scene3d = Scene3D(*renderer);
-			Cube3D* cube3d = new Cube3D(scene3d.getCamera(), 50);
+			Cube3D* cube3d = new Cube3D(scene3d.getCamera(), Vector3D(),1);
 			scene3d.add_obect(cube3d);
-			scene3d.getCamera().position_.x = -50;
-			scene3d.getCamera().position_.y = -50;
-			scene3d.getCamera().position_.z = -50;
+			Cube3D* cube3d2 = new Cube3D(scene3d.getCamera(), Vector3D(5,0,0),1);
+			scene3d.add_obect(cube3d2);
+			scene3d.getCamera().position_.x = -250;
+			scene3d.getCamera().position_.y = -250;
+			scene3d.getCamera().position_.z = -250;
 
 			//Event handler
 			SDL_Event event;
@@ -45,10 +42,6 @@ int main(int argc, char* args[])
 			Matrix3D scale_times_two_matrix = Matrix3D() * 2;
 
 			Matrix3D scale_times_half_matrix = Matrix3D() / 2;
-
-			//Matrix2D rotate_right_matrix = get_rotation_matrix_degrees(1);
-
-			//Matrix2D rotate_left_matrix = get_rotation_matrix_degrees(-1);
 
 
 			scene3d.getCamera().set_matrix();
@@ -99,10 +92,10 @@ int main(int argc, char* args[])
 							}
 
 							if (key == "Q") {
-								scene3d.getCamera().lookat_.x -= 1;
+								scene3d.getCamera().lookat_.z -= 1;
 							}
 							if (key == "E") {
-								scene3d.getCamera().lookat_.y += 1;
+								scene3d.getCamera().lookat_.z += 1;
 							}
 
 

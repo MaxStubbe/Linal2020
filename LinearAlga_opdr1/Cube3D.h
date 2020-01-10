@@ -6,7 +6,7 @@
 class Cube3D : public Object3D
 {
 public:
-	Cube3D(Camera3D& camera, int size);
+	Cube3D(Camera3D& camera, Vector3D position = Vector3D(), int size = 10);
 	void update() override;
 };
 

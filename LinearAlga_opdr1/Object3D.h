@@ -12,13 +12,15 @@ class Object3D
 protected:
 	Camera3D& camera_;
 
+	Vector3D position_;
+
 	std::vector<std::vector<Vector3D>> points_;
 
 	Color color_ = Color{ 255,255,255 };
 public:
-	Object3D(Camera3D& camera);
+	Object3D(Camera3D& camera, Vector3D position = Vector3D());
 
-	Object3D(Camera3D& camera, std::vector<std::vector<Vector3D>> points);
+	Object3D(Camera3D& camera, Vector3D position, std::vector<std::vector<Vector3D>> points);
 
 	void draw(SDL_Renderer& renderer);
 
