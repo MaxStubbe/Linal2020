@@ -170,6 +170,7 @@
     <ClCompile Include="PulsingCube3D.cpp" />
     <ClCompile Include="Scene2D.cpp" />
     <ClCompile Include="Scene3D.cpp" />
+    <ClCompile Include="SpaceShip3D.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Vector3D.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="PulsingCube3D.h" />
     <ClInclude Include="Scene2D.h" />
     <ClInclude Include="Scene3D.h" />
+    <ClInclude Include="SpaceShip3D.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Vector3D.h" />

@@ -11,6 +11,11 @@ Object3D::Object3D(Camera3D& camera, Vector3D position, std::vector<std::vector<
 
 void Object3D::draw(SDL_Renderer& renderer)
 {
+	//Rotation
+	//Calculate the points
+	
+
+
 	for (auto& points : points_) {
 		std::vector<SDL_Point> sdl_points;
 		for (auto& point : points) {

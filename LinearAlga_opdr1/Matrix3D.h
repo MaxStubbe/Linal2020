@@ -17,6 +17,7 @@ public:
 	Matrix3D operator*(const float& scalar);
 	Matrix3D operator/(const float& scalar);
 	float* operator[](int index);
+	Matrix3D inverse();
 };
 
 #endif

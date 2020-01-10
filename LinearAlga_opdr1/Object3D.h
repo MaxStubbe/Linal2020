@@ -14,6 +14,10 @@ protected:
 
 	Vector3D position_;
 
+	Matrix3D scale_matrix_;
+
+	Matrix3D rotation_matrix_;
+
 	std::vector<std::vector<Vector3D>> points_;
 
 	Color color_ = Color{ 255,255,255 };

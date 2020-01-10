@@ -5,6 +5,12 @@ float* Matrix3D::operator[](int index)
 	return matrix_[index];
 }
 
+Matrix3D Matrix3D::inverse()
+{
+	//TODO
+	return Matrix3D();
+}
+
 Matrix3D::Matrix3D()
 {
 }

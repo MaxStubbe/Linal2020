@@ -11,6 +11,7 @@
 #include "Scene3D.h"
 #include "Cube3D.h"
 #include "PulsingCube3D.h"
+#include "SpaceShip3D.h"
 
 int main(int argc, char* args[])
 {
@@ -36,6 +37,11 @@ int main(int argc, char* args[])
 			scene3d.getCamera().position_.x = -750;
 			scene3d.getCamera().position_.y = -750;
 			scene3d.getCamera().position_.z = -750;
+
+			//Add spaceship
+			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());
+			scene3d.add_obect(ship);
+
 
 			//Event handler
 			SDL_Event event;

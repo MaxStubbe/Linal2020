@@ -88,6 +88,9 @@
     <ClCompile Include="Basic_Matrices.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="SpaceShip3D.cpp">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix2D.h">
@@ -137,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="Basic_Matrices.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceShip3D.h">
+      <Filter>Objects\3D\CustomObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
