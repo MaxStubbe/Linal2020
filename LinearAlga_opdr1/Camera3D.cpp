@@ -49,3 +49,12 @@ Vector3D Camera3D::get_direction()
 {
 	return position_ - lookat_;
 }
+
+void Camera3D::rotate_x(float degrees)
+{
+	lookat_.x += 1 ;// lookat_; *get_rotation_matrix_3d_axis(position_.normalize(), degrees);
+}
+
+void Camera3D::rotate_y(float degrees)
+{
+}

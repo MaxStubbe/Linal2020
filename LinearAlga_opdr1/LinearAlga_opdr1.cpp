@@ -12,6 +12,7 @@
 #include "Cube3D.h"
 #include "PulsingCube3D.h"
 #include "SpaceShip3D.h"
+#include "AidLine3D.h"
 
 int main(int argc, char* args[])
 {
@@ -42,6 +43,9 @@ int main(int argc, char* args[])
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());
 			scene3d.add_obect(ship);
 
+			//Add AidLine
+			AidLine3D* line = new AidLine3D(scene3d.getCamera());
+			scene3d.add_obect(line);
 
 			//Event handler
 			SDL_Event event;
@@ -73,41 +77,24 @@ int main(int argc, char* args[])
 						case SDL_KEYDOWN:
 						{
 							std::string key(SDL_GetKeyName(event.key.keysym.sym));
-							if (key == "F") {
-								cube3d->do_matrix(scale_times_two_matrix);
-							}
-							if (key == "G") {
-								cube3d->do_matrix(scale_times_half_matrix);
-							}
-							/*if (key == "R") {
-								cube3d->do_matrix(rotate_right_matrix);
-							}
-							if (key == "T") {
-								cube3d->do_matrix(rotate_left_matrix);
-							}*/
 
-							if (key == "W") {
-								scene3d.getCamera().position_.y -= 1;
-							}
-							if (key == "S") {
-								scene3d.getCamera().position_.y += 1;
-							}
-							if (key == "A") {
-								scene3d.getCamera().position_.x -= 1;
-							}
-							if (key == "D") {
+
+
+							if (key == "Right") {
 								scene3d.getCamera().position_.x += 1;
 							}
-
-							if (key == "Q") {
-								scene3d.getCamera().lookat_.z -= 1;
+							if (key == "Up") {
+								scene3d.getCamera().position_.y -= 1;
 							}
-							if (key == "E") {
-								scene3d.getCamera().lookat_.z += 1;
+							if (key == "Down") {
+								scene3d.getCamera().position_.y += 1;
 							}
-
-
-
+							if (key == "Left") {
+								scene3d.getCamera().position_.x -= 1;
+							}
+							if (key == ",") {
+								scene3d.getCamera().rotate_x(1);
+							}
 
 							break;
 						}

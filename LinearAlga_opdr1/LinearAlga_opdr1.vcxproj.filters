@@ -40,6 +40,12 @@
     <Filter Include="Scenes\3D">
       <UniqueIdentifier>{0690120e-41b3-4efb-ba70-12b1b6557e56}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Camera\2D">
+      <UniqueIdentifier>{590a65d4-4248-44ad-b9d3-cdac2f4b5a7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera\3D">
+      <UniqueIdentifier>{219bdb5a-8f12-487e-90f4-5b2141c3e57c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Matrix2D.cpp">
@@ -63,14 +69,8 @@
     <ClCompile Include="Object3D.cpp">
       <Filter>Objects\3D</Filter>
     </ClCompile>
-    <ClCompile Include="Camera2D.cpp">
-      <Filter>Camera</Filter>
-    </ClCompile>
     <ClCompile Include="Cube3D.cpp">
       <Filter>Objects\3D\CustomObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera3D.cpp">
-      <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="LinearAlga_opdr1.cpp" />
     <ClCompile Include="Scene2D.cpp">
@@ -89,6 +89,15 @@
       <Filter>Utility</Filter>
     </ClCompile>
     <ClCompile Include="SpaceShip3D.cpp">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera2D.cpp">
+      <Filter>Camera\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera3D.cpp">
+      <Filter>Camera\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="AidLine3D.cpp">
       <Filter>Objects\3D\CustomObjects</Filter>
     </ClCompile>
   </ItemGroup>
@@ -114,14 +123,8 @@
     <ClInclude Include="Object3D.h">
       <Filter>Objects\3D</Filter>
     </ClInclude>
-    <ClInclude Include="Camera2D.h">
-      <Filter>Camera</Filter>
-    </ClInclude>
     <ClInclude Include="Cube3D.h">
       <Filter>Objects\3D\CustomObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera3D.h">
-      <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="Scene2D.h">
       <Filter>Scenes\2D</Filter>
@@ -142,6 +145,15 @@
       <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="SpaceShip3D.h">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera2D.h">
+      <Filter>Camera\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera3D.h">
+      <Filter>Camera\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="AidLine3D.h">
       <Filter>Objects\3D\CustomObjects</Filter>
     </ClInclude>
   </ItemGroup>
