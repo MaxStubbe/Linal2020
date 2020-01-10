@@ -3,14 +3,14 @@
 
 #include <vector>
 #include "Object2D.h"
-#include "Camera.h"
+#include "Camera2D.h"
 
 class Scene
 {
 	private:
 		std::vector<Object2D*> objects_;
 
-		Camera camera_;
+		Camera2D camera_;
 
 		SDL_Renderer& renderer_;
 
@@ -25,7 +25,7 @@ class Scene
 
 		void update();
 
-		Camera& getCamera() { return camera_; };
+		Camera2D& getCamera() { return camera_; };
 
 };
 

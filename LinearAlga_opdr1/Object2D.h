@@ -5,17 +5,20 @@
 #include "Vector2D.h"
 #include "Color.h"
 #include "Matrix2D.h"
+#include "Camera2D.h"
 
 class Object2D
 {
 protected:
+	Camera2D& camera_;
+
 	std::vector<Vector2D> points_;
 
 	Color color_ = Color{255,255,255};
 public:
-	Object2D();
+	Object2D(Camera2D& camera);
 
-	Object2D(std::vector<Vector2D> points);
+	Object2D(Camera2D& camera,std::vector<Vector2D> points);
 
 	void draw(SDL_Renderer& renderer);
 

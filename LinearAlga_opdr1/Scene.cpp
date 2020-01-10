@@ -1,6 +1,6 @@
 #include "Scene.h"
 
-Scene::Scene(SDL_Renderer& renderer) : renderer_(renderer), camera_(Camera(640, 480)) { }
+Scene::Scene(SDL_Renderer& renderer) : renderer_(renderer), camera_(Camera2D(Vector2D())) { }
 
 Scene::~Scene()
 {

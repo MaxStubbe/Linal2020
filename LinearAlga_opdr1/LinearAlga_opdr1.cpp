@@ -2,9 +2,8 @@
 #include <SDL.h>
 #include <SDL_main.h>
 #include "Vector2D.h"
-#include "Matrix.h"
 #include <cmath>
-#include "Camera.h"
+#include "Camera2D.h"
 #include <string>
 #include "Scene.h"
 #include "Cube2D.h"
@@ -27,7 +26,7 @@ int main(int argc, char* args[])
 
 			//Scene
 			Scene scene = Scene(*renderer);
-			Cube2D* cube = new Cube2D(50);
+			Cube2D* cube = new Cube2D(scene.getCamera() ,50);
 			scene.add_obect(cube);
 
 			//Event handler
@@ -71,6 +70,20 @@ int main(int argc, char* args[])
 							if (key == "T") {
 								cube->do_matrix(rotate_left_matrix);
 							}
+
+							if (key == "W") {
+								scene.getCamera().position_.y -= 1;
+							}
+							if (key == "S") {
+								scene.getCamera().position_.y += 1;
+							}
+							if (key == "A") {
+								scene.getCamera().position_.x -= 1;
+							}
+							if (key == "D") {
+								scene.getCamera().position_.x += 1;
+							}
+
 							break;
 						}
 					}

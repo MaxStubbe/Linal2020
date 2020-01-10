@@ -28,19 +28,16 @@
     <Filter Include="Objects\3D\CustomObjects">
       <UniqueIdentifier>{1a1e2d1d-6350-47bc-8cbf-eb02e3183980}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scenes\Camera">
+      <UniqueIdentifier>{ea32ce50-f4b3-4ed8-aad6-e36c670e3cb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="LinearAlga_opdr1.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>Calculations\Matrix</Filter>
     </ClCompile>
     <ClCompile Include="Matrix2D.cpp">
       <Filter>Calculations\Matrix</Filter>
@@ -60,11 +57,14 @@
     <ClCompile Include="Object2D.cpp">
       <Filter>Objects\2D</Filter>
     </ClCompile>
+    <ClCompile Include="Object3D.cpp">
+      <Filter>Objects\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera2D.cpp">
+      <Filter>Scenes\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -73,9 +73,6 @@
     </ClInclude>
     <ClInclude Include="Basic_Matrices.h">
       <Filter>Calculations</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>Calculations\Matrix</Filter>
     </ClInclude>
     <ClInclude Include="Matrix2D.h">
       <Filter>Calculations\Matrix</Filter>
@@ -94,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="Object2D.h">
       <Filter>Objects\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Object3D.h">
+      <Filter>Objects\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera2D.h">
+      <Filter>Scenes\Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

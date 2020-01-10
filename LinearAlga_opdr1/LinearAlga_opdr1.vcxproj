@@ -157,26 +157,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="Cube2D.cpp" />
     <ClCompile Include="LinearAlga_opdr1.cpp" />
-    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Matrix2D.cpp" />
     <ClCompile Include="Matrix3D.cpp" />
     <ClCompile Include="Object2D.cpp" />
+    <ClCompile Include="Object3D.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basic_Matrices.h" />
-    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Camera2D.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cube2D.h" />
-    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Matrix2D.h" />
     <ClInclude Include="Matrix3D.h" />
     <ClInclude Include="Object2D.h" />
+    <ClInclude Include="Object3D.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Vector3D.h" />
