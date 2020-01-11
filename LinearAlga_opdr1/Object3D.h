@@ -35,6 +35,7 @@ public:
 	void set_color(Color color);
 
 	void do_matrix(const Matrix3D& matrix);
+	Vector3D get_forward();
 };
 
 #endif

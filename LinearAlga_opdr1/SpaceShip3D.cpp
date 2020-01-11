@@ -62,32 +62,32 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 
 void SpaceShip3D::forward()
 {
-	this->do_matrix(get_move_matrix_3d(Vector3D(-1, 0, 0)));
+	position_ = position_ +  (get_forward() * -0.2);
 }
 
 void SpaceShip3D::back()
 {
-	this->do_matrix(get_move_matrix_3d(Vector3D(1, 0, 0)));
+	position_ = position_ + (get_forward() * 0.2);
 }
 
 void SpaceShip3D::left()
 {
-	this->do_matrix(get_rotation_matrix_3d_y(5));
+	rotation_.y += 5;
 }
 
 void SpaceShip3D::right()
 {
-	this->do_matrix(get_rotation_matrix_3d_y(-5));
+	rotation_.y -= 5;
 }
 
 void SpaceShip3D::rollleft()
 {
-	this->do_matrix(get_rotation_matrix_3d_axis(Vector3D(1, 0, 0),5));
+	rotation_.x += 5;
 }
 
 void SpaceShip3D::rollright()
 {
-	this->do_matrix(get_rotation_matrix_3d_axis(Vector3D(-1, 0, 0), 5));
+	rotation_.x -= 5;
 }
 
 void SpaceShip3D::update()

@@ -70,3 +70,19 @@ void Object3D::do_matrix(const Matrix3D& matrix)
 		}
 	}
 }
+
+Vector3D Object3D::get_forward()
+{
+	Vector3D origin_point = Vector3D(1, 0, 0);
+
+	//X rotation
+	Vector3D rotated_point = origin_point * get_rotation_matrix_3d_axis(Vector3D(1, 0, 0), rotation_.x);
+
+	//Y Rotation
+	rotated_point = rotated_point * get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), rotation_.y);
+
+	//Z Rotation
+	rotated_point = rotated_point * get_rotation_matrix_3d_axis(Vector3D(0, 0, 1), rotation_.z);
+
+	return rotated_point;
+}
