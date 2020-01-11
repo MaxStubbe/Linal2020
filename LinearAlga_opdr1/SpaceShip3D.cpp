@@ -1,4 +1,5 @@
 #include "SpaceShip3D.h"
+#include "Basic_Matrices.h"
 
 SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera, position)
 {
@@ -57,6 +58,36 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 		Vector3D(0, size, 0)
 	};
 	points_.push_back(bottom);
+}
+
+void SpaceShip3D::forward()
+{
+	this->do_matrix(get_move_matrix_3d(Vector3D(-1, 0, 0)));
+}
+
+void SpaceShip3D::back()
+{
+	this->do_matrix(get_move_matrix_3d(Vector3D(1, 0, 0)));
+}
+
+void SpaceShip3D::left()
+{
+	this->do_matrix(get_rotation_matrix_3d_y(5));
+}
+
+void SpaceShip3D::right()
+{
+	this->do_matrix(get_rotation_matrix_3d_y(-5));
+}
+
+void SpaceShip3D::rollleft()
+{
+	this->do_matrix(get_rotation_matrix_3d_axis(Vector3D(1, 0, 0),5));
+}
+
+void SpaceShip3D::rollright()
+{
+	this->do_matrix(get_rotation_matrix_3d_axis(Vector3D(-1, 0, 0), 5));
 }
 
 void SpaceShip3D::update()

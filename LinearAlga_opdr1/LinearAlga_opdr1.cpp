@@ -42,7 +42,7 @@ int main(int argc, char* args[])
 			scene3d.getCamera().position_.z = 0;
 
 			//Add Cubes
-			Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
+			/*Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
 			cube_blue->set_color(blue());
 			scene3d.add_obect(cube_blue);
 
@@ -64,14 +64,11 @@ int main(int argc, char* args[])
 
 			Cube3D* cube_lime = new Cube3D(scene3d.getCamera(), Vector3D(0, 0, -5), 1);
 			cube_lime->set_color(lime());
-			scene3d.add_obect(cube_lime);
+			scene3d.add_obect(cube_lime);*/
 
 			//Add spaceship
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());
 			scene3d.add_obect(ship);
-
-			SpaceShip3D* ship1 = new SpaceShip3D(scene3d.getCamera(), Vector3D(100,0,0));
-			scene3d.add_obect(ship1);
 
 			//Add AidLine
 			AidLine3D* line_x = new AidLine3D(scene3d.getCamera(),Vector3D(500,0,0), Vector3D(-500,0,0));
@@ -152,6 +149,25 @@ int main(int argc, char* args[])
 							}
 							if (key == "U") {//roll right
 								scene3d.getCamera().rotate_z(-1);
+							}
+
+							if (key == "W") {//forward
+								ship->forward();
+							}
+							if (key == "S") {//back
+								ship->back();
+							}
+							if (key == "D") {//left
+								ship->left();
+							}
+							if (key == "A") {//right
+								ship->right();
+							}
+							if (key == "Q") {//rollleft
+								ship->rollleft();
+							}
+							if (key == "E") {//rollright
+								ship->rollright();
 							}
 
 							if (key == "R") {
