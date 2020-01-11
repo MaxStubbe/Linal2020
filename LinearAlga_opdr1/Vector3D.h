@@ -16,7 +16,7 @@ public:
 	float z;
 	float w;
 	Vector3D();
-	Vector3D(float x1, float y1, float z1, float w1 = 0);
+	Vector3D(float x1, float y1, float z1, float w1 = 1);
 	Vector3D(const Vector3D& p2);
 	SDL_Point get_sdl_point();
 	Vector3D normalize();
@@ -24,9 +24,12 @@ public:
 	Vector3D cross_product(const Vector3D& other);//Uitproduct
 	float dot_product(const Vector3D& other);//inproduct
 	Vector3D operator+(const Vector3D& other);
+	bool operator==(const Vector3D& other);
 	Vector3D operator-(const Vector3D& other);
 	Vector3D operator*(const float scalar);
+	Vector3D operator/(const float scalar);
 	Vector3D operator*(const Matrix3D& other);
+	float distance(const Vector3D& other);
 	friend std::ostream& operator<<(std::ostream& os, const Vector3D& vector);
 };
 

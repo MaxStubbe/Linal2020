@@ -154,9 +154,17 @@ int main(int argc, char* args[])
 								scene3d.getCamera().rotate_z(-1);
 							}
 
-							if (key == "R") {
+							if (key == "X") {
 								scene3d.getCamera().position_ = Vector3D(0,0,0);
 								scene3d.getCamera().lookat_ = Vector3D(1,0,0);
+							}
+							if (key == "Y") {
+								scene3d.getCamera().position_ = Vector3D(0, 0, 0);
+								scene3d.getCamera().lookat_ = Vector3D(0.00001, 1, 0);
+							}
+							if (key == "Z") {
+								scene3d.getCamera().position_ = Vector3D(0, 0, 0);
+								scene3d.getCamera().lookat_ = Vector3D(0, 0, 1);
 							}
 							if (key == "T") {
 								scene3d.getCamera().position_ = Vector3D(-36, 15, 22);
@@ -167,7 +175,7 @@ int main(int argc, char* args[])
 								scene3d.getCamera().lookat_ = Vector3D(50, 0, 0);
 							}
 
-							if (key == "Y") {
+							if (key == "P") {
 								scene3d.getCamera().perspective_ = !scene3d.getCamera().perspective_;
 							}
 

@@ -5,16 +5,17 @@
 #include "Vector3D.h"
 #include "Color.h"
 #include "Camera3D.h"
+//#include "BoundingBox3D.h"
 
 
 class Object3D
 {
 protected:
+	//BoundingBox3D collider;
+
 	Camera3D& camera_;
 
 	Vector3D position_;
-
-	Vector3D center_;
 
 	Vector3D scale_ = Vector3D(1,1,1);
 
@@ -24,6 +25,8 @@ protected:
 
 	Color color_ = Color{ 255,255,255 };
 public:
+	Vector3D center_;
+
 	Object3D(Camera3D& camera, Vector3D position = Vector3D());
 
 	Object3D(Camera3D& camera, Vector3D position, std::vector<std::vector<Vector3D>> points);
@@ -37,6 +40,8 @@ public:
 	void do_matrix(const Matrix3D& matrix);
 
 	Vector3D get_forward();
+
+	bool collides_with(const Object3D& other);
 };
 
 #endif

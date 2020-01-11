@@ -68,6 +68,16 @@ Vector3D Vector3D::operator+(const Vector3D& other)
 	return vec;
 }
 
+bool Vector3D::operator==(const Vector3D& other)
+{
+	return (
+		x == other.x &&
+		y == other.y &&
+		z == other.z &&
+		w == other.w
+		);
+}
+
 Vector3D Vector3D::operator-(const Vector3D& other)
 {
 	Vector3D vec;
@@ -86,6 +96,15 @@ Vector3D Vector3D::operator*(const float scalar)
 	return vec;
 }
 
+Vector3D Vector3D::operator/(const float scalar)
+{
+	Vector3D vec;
+	vec.x = x / scalar;
+	vec.y = y / scalar;
+	vec.z = z / scalar;
+	return vec;
+}
+
 Vector3D Vector3D::operator*(const Matrix3D& other)
 {
 	float other_vector[4] = { x, y,z, 1 };
@@ -97,6 +116,11 @@ Vector3D Vector3D::operator*(const Matrix3D& other)
 		}
 	}
 	return Vector3D(vector_[0], vector_[1],vector_[2], vector_[3]);
+}
+
+float Vector3D::distance(const Vector3D& other)
+{
+	return 0.0f;
 }
 
 std::ostream& operator<<(std::ostream& os, const Vector3D& vector)

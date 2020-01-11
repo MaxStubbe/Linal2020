@@ -46,6 +46,15 @@
     <Filter Include="Camera\3D">
       <UniqueIdentifier>{219bdb5a-8f12-487e-90f4-5b2141c3e57c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{0e7bc913-a43c-475d-a18b-f2e383844ec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision\2D">
+      <UniqueIdentifier>{ecff37b2-1427-4afa-929e-4785e43c9cb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision\3D">
+      <UniqueIdentifier>{f81762c5-ed94-46d8-a2f8-e244ad1f6ae0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Matrix2D.cpp">
@@ -103,6 +112,9 @@
     <ClCompile Include="Color.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="BoundingBox3D.cpp">
+      <Filter>Collision\3D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix2D.h">
@@ -158,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="AidLine3D.h">
       <Filter>Objects\3D\CustomObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBox3D.h">
+      <Filter>Collision\3D</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
