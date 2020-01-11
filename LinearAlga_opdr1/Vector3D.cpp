@@ -101,6 +101,6 @@ Vector3D Vector3D::operator*(const Matrix3D& other)
 
 std::ostream& operator<<(std::ostream& os, const Vector3D& vector)
 {
-	os << " [ " << vector.x << " | " << vector.y << " | " << vector.y << " | " << vector.w << " ] ";
+	os << " [ " << vector.x << " | " << vector.y << " | " << vector.z << " | " << vector.w << " ] ";
 	return os;
 }
