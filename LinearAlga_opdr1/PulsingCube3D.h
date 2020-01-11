@@ -11,7 +11,7 @@ private:
 	int pulse_speed_;
 	bool scale_up_;
 	Vector3D current_scale_ = Vector3D(1,1,1);
-
+	bool color_toggle;
 
 public:
 	PulsingCube3D(Camera3D& camera, Vector3D position = Vector3D(), int size = 10, int pulse_speed = 50);

@@ -80,9 +80,16 @@ void PulsingCube3D::update()
 		scale_up_ = false;
 	}
 
-	collider_.set_collider(center_, size_* current_scale_.x);
+	collider_.set_collider(center_+position_, size_* current_scale_.x);
 }
 
 void PulsingCube3D::on_collision()
 {
+	color_toggle = !color_toggle;
+	if (color_toggle) {
+		set_color(red());
+	}
+	else {
+		set_color(white());
+	}
 }

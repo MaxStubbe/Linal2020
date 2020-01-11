@@ -47,8 +47,8 @@ int main(int argc, char* args[])
 			Scene3D scene3d = Scene3D(*renderer);
 
 			//Add Animated Cube
-			/*PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1,10);
-			scene3d.add_object(cube3d);*/
+			PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5, 0, 0),1,10);
+			scene3d.add_object(cube3d);
 
 			//Set Camera Position
 			scene3d.getCamera().position_.x = -50;
@@ -60,9 +60,9 @@ int main(int argc, char* args[])
 			cube_blue->set_color(blue());
 			scene3d.add_object(cube_blue);
 
-			Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
+			/*Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
 			cube_yellow->set_color(yellow());
-			scene3d.add_object(cube_yellow);
+			scene3d.add_object(cube_yellow);*/
 
 			Cube3D* cube_cyan = new Cube3D(scene3d.getCamera(), Vector3D(0, 5, 0), 1);
 			cube_cyan->set_color(cyan());
