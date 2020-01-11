@@ -22,7 +22,7 @@ void Camera3D::set_matrix()
 
 SDL_Point Camera3D::get_sdl_point(Vector3D point)
 {
-	float screenSize = 100.0f;
+	float screenSize = 300.0f;
 	float near = 0.1f;
 	float far = 1000.0f;
 	float fov = 90.0f;
@@ -74,6 +74,7 @@ void Camera3D::rotate_y(float degrees)
 	lookat_ = (point * matrix) + position_;
 }
 
+//TODO: This one doesn't work well
 void Camera3D::rotate_z(float degrees)
 {
 	Vector3D dir = get_direction().normalize();

@@ -105,8 +105,6 @@ int main(int argc, char* args[])
 						{
 							std::string key(SDL_GetKeyName(event.key.keysym.sym));
 
-
-
 							if (key == "Left") {
 								scene3d.getCamera().position_.x += 1;
 								scene3d.getCamera().lookat_.x += 1;
@@ -132,7 +130,6 @@ int main(int argc, char* args[])
 								scene3d.getCamera().lookat_.z += 1;
 							}
 
-
 							if (key == "J") {//turn up
 								scene3d.getCamera().rotate_x(1);
 							}
@@ -154,11 +151,11 @@ int main(int argc, char* args[])
 								scene3d.getCamera().rotate_z(-1);
 							}
 
-
 							std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";
 
 							std::cout << "Camera Position " << (scene3d.getCamera().position_) << "\n";
 
+							std::cout << "Camera Up " << (scene3d.getCamera().up_) << "\n";
 
 							break;
 						}
