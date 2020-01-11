@@ -149,5 +149,27 @@ namespace LinearAlgaTest
 
 			Assert::IsTrue((Matrix3D(matrix) * Matrix3D(matrix2)) == Matrix3D(matrix3));
 		}
+
+		TEST_METHOD(Matrix_Divide)
+		{
+			float matrix[4][4] = {
+				{2,0,0,0},
+				{0,2,0,0},
+				{0,0,2,0},
+				{0,0,0,2}
+			};
+			Assert::IsTrue((Matrix3D(matrix) / 2) == Matrix3D());
+		}
+
+		TEST_METHOD(Matrix_Multiply)
+		{
+			float matrix[4][4] = {
+				{2,0,0,0},
+				{0,2,0,0},
+				{0,0,2,0},
+				{0,0,0,2}
+			};
+			Assert::IsTrue((Matrix3D() * 2) == Matrix3D(matrix));
+		}
 	};
 }
