@@ -15,7 +15,7 @@ void Camera3D::set_matrix()
 	float camera_matrix[4][4] = {
 		{right.x,right.y,right.z,-right.dot_product(position_)},
 		{up.x,up.y,up.z,-up.dot_product(position_)},
-		{dir.x,dir.y,dir.z,-up.dot_product(position_)},
+		{dir.x,dir.y,dir.z,-dir.dot_product(position_)},
 		{0,0,0,1}
 	};
 	cam_matrix = Matrix3D(camera_matrix);
@@ -41,12 +41,17 @@ SDL_Point Camera3D::get_sdl_point(Vector3D point)
 {
 	//Screen Size
 	float screenSize = 60.0f;
+	if (perspective_)
+		screenSize = 600.0f;
 
 	//Haal punt langs camera matrix. => Orthographic 
 	Vector3D ortho_point = point * cam_matrix;
 
 	//Haal punt langs projectie matrix. => Perspectief
-	Vector3D canvas_point = ortho_point;// *pro_matrix;
+	Vector3D canvas_point = ortho_point;
+	if (perspective_) {
+		canvas_point = ortho_point * pro_matrix;
+	}
 
 	//Naberekingen
 	if (canvas_point.w != 0) {

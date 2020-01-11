@@ -16,6 +16,8 @@ public:
 
 	Matrix3D pro_matrix;
 
+	bool perspective_ = false;
+
 	Camera3D(Vector3D position);
 
 	void set_matrix();

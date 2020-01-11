@@ -162,6 +162,15 @@ int main(int argc, char* args[])
 								scene3d.getCamera().position_ = Vector3D(-36, 15, 22);
 								scene3d.getCamera().lookat_ = Vector3D(0.5, -7, -5.5);
 							}
+							if (key == "F") {
+								scene3d.getCamera().position_ = Vector3D(25, 0, 0);
+								scene3d.getCamera().lookat_ = Vector3D(50, 0, 0);
+							}
+
+							if (key == "Y") {
+								scene3d.getCamera().perspective_ = !scene3d.getCamera().perspective_;
+							}
+
 
 							std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";
 
