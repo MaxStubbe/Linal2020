@@ -1,3 +1,4 @@
+#include <ostream>
 #ifndef __Matrix3D_h__
 #define __Matrix3D_h__
 class Matrix3D
@@ -18,6 +19,7 @@ public:
 	Matrix3D operator/(const float& scalar);
 	float* operator[](int index);
 	Matrix3D inverse();
+	friend std::ostream& operator<<(std::ostream& os, const Matrix3D& matrix);
 };
 
 #endif

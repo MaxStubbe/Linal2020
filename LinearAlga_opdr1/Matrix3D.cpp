@@ -96,3 +96,14 @@ Matrix3D Matrix3D::operator/(const float& scalar)
 	}
 	return matrix;
 }
+
+std::ostream& operator<<(std::ostream& os, const Matrix3D& matrix)
+{
+
+	os << "\n( " << matrix.matrix_[0][0] << " | " << matrix.matrix_[0][1] << " | " << matrix.matrix_[0][2] << " | " << matrix.matrix_[0][3] << " )\n";
+	os << "( " << matrix.matrix_[1][0] << " | " << matrix.matrix_[1][1] << " | " << matrix.matrix_[1][2] << " | " << matrix.matrix_[1][3] << " )\n";
+	os << "( " << matrix.matrix_[2][0] << " | " << matrix.matrix_[2][1] << " | " << matrix.matrix_[2][2] << " | " << matrix.matrix_[2][3] << " )\n";
+	os << "( " << matrix.matrix_[3][0] << " | " << matrix.matrix_[3][1] << " | " << matrix.matrix_[3][2] << " | " << matrix.matrix_[3][3] << " )\n";
+
+	return os;
+}
