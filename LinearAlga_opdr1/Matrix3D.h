@@ -19,7 +19,6 @@ public:
 	Matrix3D operator/(const float& scalar);
 	bool operator==(const Matrix3D& other);
 	float* operator[](int index);
-	Matrix3D inverse();
 	friend std::ostream& operator<<(std::ostream& os, const Matrix3D& matrix);
 };
 

@@ -1,14 +1,9 @@
 #include "Matrix3D.h"
+#include "Basic_Matrices.h"
 
 float* Matrix3D::operator[](int index)
 {
 	return matrix_[index];
-}
-
-Matrix3D Matrix3D::inverse()
-{
-	//TODO
-	return Matrix3D();
 }
 
 Matrix3D::Matrix3D()
@@ -54,7 +49,7 @@ Matrix3D Matrix3D::operator-(const Matrix3D& other)
 
 Matrix3D Matrix3D::operator*(const Matrix3D& other)
 {
-	Matrix3D matrix;
+	Matrix3D matrix = get_null_matrix_3d();
 	//For each row
 	for (int row = 0; row < 4; ++row) {
 

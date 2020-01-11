@@ -84,3 +84,14 @@ Matrix3D get_move_matrix_3d(Vector3D position)
 	};
 	return Matrix3D(matrix);
 }
+
+Matrix3D get_null_matrix_3d()
+{
+	float matrix[4][4] = {
+		   {0,0,0,0},
+		   {0,0,0,0},
+		   {0,0,0,0},
+		   {0,0,0,0}
+	};
+	return Matrix3D(matrix);
+}

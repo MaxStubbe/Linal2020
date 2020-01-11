@@ -2,7 +2,10 @@
 #include "CppUnitTest.h"
 //#include "../LinearAlga_opdr1/Vector3D.h"
 #include "../LinearAlga_opdr1/Vector3D.cpp"
+#include "../LinearAlga_opdr1/Vector2D.cpp"
 #include "../LinearAlga_opdr1//Matrix3D.cpp"
+#include "../LinearAlga_opdr1//Matrix2D.cpp"
+#include "../LinearAlga_opdr1/Basic_Matrices.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -99,6 +102,52 @@ namespace LinearAlgaTest
 				{0,0,0,1}
 			};
 			Assert::IsTrue(Matrix3D(matrix) == Matrix3D());
+		}
+
+		TEST_METHOD(Matrix_Add)
+		{
+			float matrix[4][4] = {
+				{2,0,0,0},
+				{0,2,0,0},
+				{0,0,2,0},
+				{0,0,0,2}
+			};
+			Assert::IsTrue((Matrix3D() + Matrix3D()) == Matrix3D(matrix));
+		}
+
+		TEST_METHOD(Matrix_Subtract)
+		{
+			float matrix[4][4] = {
+				{0,0,0,0},
+				{0,0,0,0},
+				{0,0,0,0},
+				{0,0,0,0}
+			};
+			Assert::IsTrue((Matrix3D() - Matrix3D()) == Matrix3D(matrix));
+		}
+
+		TEST_METHOD(Matrix_Multiplication)
+		{
+			float matrix[4][4] = {
+				{1,2,3,4},
+				{2,3,4,1},
+				{3,4,1,2},
+				{4,1,2,3}
+			};
+			float matrix2[4][4] = {
+				{4,3,2,1},
+				{1,4,3,2},
+				{2,1,4,3},
+				{3,2,1,4}
+			};
+			float matrix3[4][4] = {
+				{24,22,24,30},
+				{22,24,30,24},
+				{24,30,24,22},
+				{30,24,22,24}
+			};
+
+			Assert::IsTrue((Matrix3D(matrix) * Matrix3D(matrix2)) == Matrix3D(matrix3));
 		}
 	};
 }
