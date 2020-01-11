@@ -13,13 +13,18 @@ private:
 	Camera3D camera_;
 
 	SDL_Renderer& renderer_;
+	bool looping = false;
+	std::vector<Object3D*> objectsToAdd_;
+	std::vector<Object3D*> objectsToDelete_;
 
 public:
 	Scene3D(SDL_Renderer& renderer);
 
 	~Scene3D();
 
-	void add_obect(Object3D* object);
+	void add_object(Object3D* object);
+
+	void delete_object(Object3D* object);
 
 	void draw();
 

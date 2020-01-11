@@ -78,6 +78,7 @@ void Object3D::do_matrix(const Matrix3D& matrix)
 
 Vector3D Object3D::get_forward()
 {
+
 	Vector3D origin_point = Vector3D(1,0,0);
 
 	//X rotation
@@ -92,7 +93,9 @@ Vector3D Object3D::get_forward()
 	return rotated_point;
 }
 
+
 bool Object3D::collides_with(const Object3D& other)
 {
 	return false;
 }
+

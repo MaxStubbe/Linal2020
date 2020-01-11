@@ -115,6 +115,9 @@
     <ClCompile Include="BoundingBox3D.cpp">
       <Filter>Collision\3D</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix2D.h">
@@ -173,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="BoundingBox3D.h">
       <Filter>Collision\3D</Filter>
+    </ClInclude>
+	<ClInclude Include="Bullet.h">
+      <Filter>Objects\3D\CustomObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -160,6 +160,7 @@
     <ClCompile Include="AidLine3D.cpp" />
     <ClCompile Include="Basic_Matrices.cpp" />
     <ClCompile Include="BoundingBox3D.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="Camera3D.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="AidLine3D.h" />
     <ClInclude Include="Basic_Matrices.h" />
     <ClInclude Include="BoundingBox3D.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="Camera3D.h" />
     <ClInclude Include="Color.h" />

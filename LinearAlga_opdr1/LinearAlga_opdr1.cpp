@@ -48,7 +48,7 @@ int main(int argc, char* args[])
 
 			//Add Animated Cube
 			PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1,10);
-			scene3d.add_obect(cube3d);
+			scene3d.add_object(cube3d);
 
 			//Set Camera Position
 			scene3d.getCamera().position_.x = -50;
@@ -56,46 +56,43 @@ int main(int argc, char* args[])
 			scene3d.getCamera().position_.z = 0;
 
 			//Add Cubes
-			Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
+			/*Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
 			cube_blue->set_color(blue());
-			scene3d.add_obect(cube_blue);
+			scene3d.add_object(cube_blue);
 
 			Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
 			cube_yellow->set_color(yellow());
-			scene3d.add_obect(cube_yellow);
+			scene3d.add_object(cube_yellow);
 
 			Cube3D* cube_cyan = new Cube3D(scene3d.getCamera(), Vector3D(0, 5, 0), 1);
 			cube_cyan->set_color(cyan());
-			scene3d.add_obect(cube_cyan);
+			scene3d.add_object(cube_cyan);
 
 			Cube3D* cube_pink = new Cube3D(scene3d.getCamera(), Vector3D(0, -5, 0), 1);
 			cube_pink->set_color(pink());
-			scene3d.add_obect(cube_pink);
+			scene3d.add_object(cube_pink);
 
 			Cube3D* cube_orange = new Cube3D(scene3d.getCamera(), Vector3D(0, 0, 5), 1);
 			cube_orange->set_color(orange());
-			scene3d.add_obect(cube_orange);
+			scene3d.add_object(cube_orange);
 
 			Cube3D* cube_lime = new Cube3D(scene3d.getCamera(), Vector3D(0, 0, -5), 1);
 			cube_lime->set_color(lime());
-			scene3d.add_obect(cube_lime);
+			scene3d.add_object(cube_lime);*/
 
 			//Add spaceship
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());
-			scene3d.add_obect(ship);
-
-			SpaceShip3D* ship1 = new SpaceShip3D(scene3d.getCamera(), Vector3D(100,0,0));
-			scene3d.add_obect(ship1);
+			scene3d.add_object(ship);
 
 			//Add AidLine
 			AidLine3D* line_x = new AidLine3D(scene3d.getCamera(),Vector3D(500,0,0), Vector3D(-500,0,0));
-			scene3d.add_obect(line_x);
+			scene3d.add_object(line_x);
 
 			AidLine3D* line_y = new AidLine3D(scene3d.getCamera(), Vector3D(0,500,0), Vector3D(0,-500, 0));
-			scene3d.add_obect(line_y);
+			scene3d.add_object(line_y);
 
 			AidLine3D* line_z = new AidLine3D(scene3d.getCamera(), Vector3D(0, 0, 500), Vector3D(0, 0, -500));
-			scene3d.add_obect(line_z);
+			scene3d.add_object(line_z);
 
 			//Event handler
 			SDL_Event event;
@@ -166,6 +163,32 @@ int main(int argc, char* args[])
 							}
 							if (key == "U") {//roll right
 								scene3d.getCamera().rotate_z(-1);
+							}
+
+							
+							if (key == "Left Shift") {//forward
+								ship->forward();
+							}
+							if (key == "Space") {//forward
+								ship->shoot(&scene3d);
+							}
+							if (key == "W") {//up
+								ship->up();
+							}
+							if (key == "S") {//down
+								ship->down();
+							}
+							if (key == "D") {//left
+								ship->left();
+							}
+							if (key == "A") {//right
+								ship->right();
+							}
+							if (key == "Q") {//rollleft
+								ship->rollleft();
+							}
+							if (key == "E") {//rollright
+								ship->rollright();
 							}
 
 							if (key == "X") {
