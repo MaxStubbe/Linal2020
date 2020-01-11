@@ -32,10 +32,10 @@ void Object3D::draw(SDL_Renderer& renderer)
 			Vector3D scaled_point = rotated_point * get_scale_matrix_3d(scale_.x);
 
 			//Back to position
-			rotated_point = rotated_point + center_;
+			//scaled_point = scaled_point + center_;
 
 			//Transform point.
-			Vector3D transformed_point = scaled_point + position_;
+			Vector3D transformed_point = scaled_point + position_ + center_;
 
 			try {
 				sdl_points.push_back(camera_.get_sdl_point(transformed_point));
