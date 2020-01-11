@@ -81,7 +81,7 @@ void Object3D::add_force(Vector3D force)
 
 void Object3D::move()
 {
-	position_ = position_ + velocity_;
+	position_ = position_ + (get_forward() * velocity_.x);
 }
 
 void Object3D::set_color(Color color)

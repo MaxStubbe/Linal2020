@@ -111,16 +111,16 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 void SpaceShip3D::forward()
 {
 	//position_ = position_ +  (get_forward() * 0.2);
-	velocity_ = velocity_ + (get_forward() * 0.002);
+	velocity_.x = velocity_.x + 0.002;
 	if (velocity_.magnitude() > 1) {
-		velocity_.normalize();
+		velocity_.x = 1;
 	}
 }
 
 void SpaceShip3D::back()
 {
 	//position_ = position_ + (get_forward() * -0.2);
-	velocity_ = velocity_ - (get_forward() * 0.002);
+	velocity_.x = velocity_.x - 0.002;
 	if (velocity_.magnitude() < 0) {
 		velocity_ = Vector3D(0, 0, 0);
 	}
