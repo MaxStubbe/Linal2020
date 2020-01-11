@@ -17,15 +17,16 @@
 /*
 Knockout Criterea: 1/1
 Code/Matrices: 1/1
-Bewegen Schip: 1.05/1.5
-Kogels afschieten 0.68/1.5
+Bewegen Schip: 1.5/1.5 ALS DRAAIEN NETJES WERKT anders 0.68
+Kogels afschieten 1.05/1.5 ALS VECTOR ALS MATRIX TELT DAN 1,5
 Pulserend doel: 1.5/1.5
-Doel Raken: 0.7/1
+Doel Raken: 0.7/1 
 Unit Tests: 0.7/1
 Camera in 3D Wereld: 0.5/0.5
 Overig: 0/1
 
-Totaal: /10
+Waarschijnlijk: 7.95/10 
+Worst case nu: 7.13/10
 */
 
 int main(int argc, char* args[])
@@ -168,6 +169,9 @@ int main(int argc, char* args[])
 							
 							if (key == "Left Shift") {//forward
 								ship->forward();
+							}
+							if (key == "Left Ctrl") {//back
+								ship->back();
 							}
 							if (key == "Space") {//forward
 								ship->shoot(&scene3d);
