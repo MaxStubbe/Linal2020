@@ -126,10 +126,10 @@ int main(int argc, char* args[])
 							if (key == "Right") {
 								scene3d.getCamera().move_x(1);
 							}
-							if (key == ",") {
+							if (key == "PageUp") {
 								scene3d.getCamera().move_z(-1);
 							}
-							if (key == ".") {
+							if (key == "PageDown") {
 								scene3d.getCamera().move_z(1);
 							}
 

@@ -10,7 +10,7 @@ private:
 	Timer pulse_timer_ = Timer();
 	int pulse_speed_;
 	bool scale_up_;
-	Vector3D current_scale_;
+	Vector3D current_scale_ = Vector3D(1,1,1);
 
 
 public:

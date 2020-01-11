@@ -52,12 +52,15 @@ PulsingCube3D::PulsingCube3D(Camera3D& camera, Vector3D position, int size, int 
 		Vector3D(0, size, 0)
 	};
 	points_.push_back(bottom);
-
+	rotation_.y = 90;
 	scale_up_ = false;
 }
 
 void PulsingCube3D::update()
 {
+	rotation_.y += 0.01;
+	position_ = position_ + (get_forward()*0.001);
+
 	if (!pulse_timer_.is_running()) {
 		pulse_timer_.start();
 	}
@@ -72,8 +75,10 @@ void PulsingCube3D::update()
 		scale_ = current_scale_;
 		pulse_timer_.reset();
 	}
-
-	if (current_scale_.x >= 1 || current_scale_.x <= 0.1) {
-		scale_up_ = !scale_up_;
+	if (current_scale_.x <= 0.1) {
+		scale_up_ = true;
+	}
+	else if (current_scale_.x >= 1) {
+		scale_up_ = false;
 	}
 }
