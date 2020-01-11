@@ -35,9 +35,9 @@ int main(int argc, char* args[])
 			scene3d.add_obect(cube3d);
 			Cube3D* cube3d2 = new Cube3D(scene3d.getCamera(), Vector3D(5,0,0),1);
 			scene3d.add_obect(cube3d2);
-			scene3d.getCamera().position_.x = -750;
-			scene3d.getCamera().position_.y = -750;
-			scene3d.getCamera().position_.z = -750;
+			scene3d.getCamera().position_.x = 50;
+			scene3d.getCamera().position_.y = 50;
+			scene3d.getCamera().position_.z = 50;
 
 			//Add spaceship
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());
