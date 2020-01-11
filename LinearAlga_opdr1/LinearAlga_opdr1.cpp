@@ -151,11 +151,17 @@ int main(int argc, char* args[])
 								scene3d.getCamera().rotate_z(-1);
 							}
 
-							if (key == "W") {//forward
+							if (key == "Left Shift") {//forward
 								ship->forward();
 							}
-							if (key == "S") {//back
-								ship->back();
+							if (key == "Space") {//forward
+								ship->shoot();
+							}
+							if (key == "W") {//up
+								ship->up();
+							}
+							if (key == "S") {//down
+								ship->down();
 							}
 							if (key == "D") {//left
 								ship->left();

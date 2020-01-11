@@ -70,6 +70,16 @@ void SpaceShip3D::back()
 	position_ = position_ + (get_forward() * 0.2);
 }
 
+void SpaceShip3D::up()
+{
+	rotation_.z += 5;
+}
+
+void SpaceShip3D::down()
+{
+	rotation_.z -= 5;
+}
+
 void SpaceShip3D::left()
 {
 	rotation_.y += 5;
@@ -88,6 +98,10 @@ void SpaceShip3D::rollleft()
 void SpaceShip3D::rollright()
 {
 	rotation_.x -= 5;
+}
+
+void SpaceShip3D::shoot()
+{
 }
 
 void SpaceShip3D::update()

@@ -11,10 +11,13 @@ public:
 	SpaceShip3D(Camera3D& camera, Vector3D position = Vector3D());
 	void forward();
 	void back();
+	void up();
+	void down();
 	void left();
 	void right();
 	void rollleft();
 	void rollright();
+	void shoot();
 	void update() override;
 };
 
