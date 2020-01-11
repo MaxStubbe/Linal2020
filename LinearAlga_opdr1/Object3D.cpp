@@ -20,13 +20,15 @@ void Object3D::draw(SDL_Renderer& renderer)
 
 
 
-	Matrix3D rot_x_mat = get_rotation_matrix_3d_axis(forward_, rotation_.x);
+	Matrix3D rot_x_mat = get_rotation_matrix_3d_x(rotation_.x);//get_rotation_matrix_3d_axis(forward_, rotation_.x);
 
-	Matrix3D rot_y_mat = get_rotation_matrix_3d_axis(up_, rotation_.y);
+	Matrix3D rot_y_mat = get_rotation_matrix_3d_y(rotation_.y);//get_rotation_matrix_3d_axis(up_, rotation_.y);
 
-	Matrix3D rot_z_mat = get_rotation_matrix_3d_axis(right_, rotation_.z);
+	Matrix3D rot_z_mat = get_rotation_matrix_3d_z(rotation_.z);//get_rotation_matrix_3d_axis(right_, rotation_.z);
 
 	Matrix3D scale_mat = get_scale_matrix_3d(scale_);
+
+	
 
 	for (auto& points : points_) {
 		std::vector<SDL_Point> sdl_points;
@@ -35,7 +37,7 @@ void Object3D::draw(SDL_Renderer& renderer)
 			float dot = Vector3D(1, 0, 0).dot_product(forward_);
 			float angle = acos(dot);
 
-			//Point to origin
+			//Point relative to origin
 			Vector3D origin_point = point - center_;
 
 			//X rotation
@@ -50,7 +52,7 @@ void Object3D::draw(SDL_Renderer& renderer)
 			//Scale point.
 			Vector3D scaled_point = rotated_point * scale_mat;
 
-			//Transform point.
+			//Translate point back.
 			Vector3D transformed_point = scaled_point + position_ + center_;
 
 			try {

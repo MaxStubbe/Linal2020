@@ -67,10 +67,12 @@ int main(int argc, char* args[])
 
 			Cube3D* cube_cyan = new Cube3D(scene3d.getCamera(), Vector3D(0, 5, 0), 1);
 			cube_cyan->set_color(cyan());
+			cube_cyan->rotation_.z = 90;
 			scene3d.add_object(cube_cyan);
 
 			Cube3D* cube_pink = new Cube3D(scene3d.getCamera(), Vector3D(0, -5, 0), 1);
 			cube_pink->set_color(pink());
+			cube_pink->rotation_.y = 90;
 			scene3d.add_object(cube_pink);
 
 			Cube3D* cube_orange = new Cube3D(scene3d.getCamera(), Vector3D(0, 0, 5), 1);
@@ -218,6 +220,10 @@ int main(int argc, char* args[])
 
 							if (key == "P") {
 								scene3d.getCamera().perspective_ = !scene3d.getCamera().perspective_;
+							}
+
+							if (key == "M") {
+								cube_pink->rotation_.y += 5;
 							}
 
 

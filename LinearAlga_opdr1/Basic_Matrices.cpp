@@ -72,6 +72,37 @@ Matrix3D get_rotation_matrix_3d_z(float degrees)
 	return Matrix3D(matrix);
 }
 
+Matrix3D get_rotation_around_y_matrix_3d(Vector3D& point)
+{
+	float value = (point.x / (sqrt((point.x* point.x) + (point.z* point.z))));
+	float value2 = (point.z / (sqrt((point.x * point.x) + (point.z * point.z))));;
+	float matrix[4][4] = {
+				{value,0,value2,0},
+				{0,0,0,0},
+				{-value2,0,value,0},
+				{0,0,0,1}
+	};
+	return Matrix3D(matrix);
+}
+
+Matrix3D get_rotation_around_z_matrix_3d(Vector3D& point)
+{
+	float value = (sqrt((point.x * point.x) + (point.y * point.y)) / (sqrt((point.x * point.x) + (point.y * point.y) + (point.z * point.z))));
+	float value2 = (point.y * point.y / (sqrt((point.x * point.x) + (point.y * point.y) + (point.z * point.z))));
+	float matrix[4][4] = {
+				{value,value2,0,0},
+				{-value2,value,0,0},
+				{0,0,0,0},
+				{0,0,0,1}
+	};
+	return Matrix3D(matrix);
+}
+
+Matrix3D get_rotation_around_x_matrix_3d(Vector3D& point)
+{
+	return Matrix3D();
+}
+
 Matrix3D get_rotation_matrix_3d_axis(Vector3D axis_, float degrees)
 {
 	Vector3D axis = axis_.normalize();
