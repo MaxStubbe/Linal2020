@@ -18,7 +18,6 @@ public:
 	Vector3D();
 	Vector3D(float x1, float y1, float z1, float w1 = 1);
 	Vector3D(const Vector3D& p2);
-	SDL_Point get_sdl_point();
 	Vector3D normalize();
 	float magnitude();
 	Vector3D cross_product(const Vector3D& other);//Uitproduct

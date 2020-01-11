@@ -24,12 +24,6 @@ Vector3D::Vector3D(const Vector3D& p2)
 	w = p2.w;
 }
 
-SDL_Point Vector3D::get_sdl_point()
-{
-	throw "Not Implementeded";
-	return SDL_Point();
-}
-
 Vector3D Vector3D::normalize()
 {
 	Vector3D vec;
@@ -120,7 +114,7 @@ Vector3D Vector3D::operator*(const Matrix3D& other)
 
 float Vector3D::distance(const Vector3D& other)
 {
-	return 0.0f;
+	return sqrt((x - other.x) * (x - other.x) + (y - other.y) * (y - other.y) + (z - other.z) * (z - other.z));
 }
 
 std::ostream& operator<<(std::ostream& os, const Vector3D& vector)
