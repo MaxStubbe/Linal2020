@@ -31,13 +31,32 @@ int main(int argc, char* args[])
 
 			//Scene3D
 			Scene3D scene3d = Scene3D(*renderer);
-			PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1);
-			scene3d.add_obect(cube3d);
-			Cube3D* cube3d2 = new Cube3D(scene3d.getCamera(), Vector3D(5,0,0),1);
-			scene3d.add_obect(cube3d2);
-			scene3d.getCamera().position_.x = 50;
-			scene3d.getCamera().position_.y = 50;
-			scene3d.getCamera().position_.z = 50;
+
+			//Add Animated Cube
+			/*PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1);
+			scene3d.add_obect(cube3d);*/
+
+			//Set Camera Position
+			scene3d.getCamera().position_.x = 0;
+			scene3d.getCamera().position_.y = 0;
+			scene3d.getCamera().position_.z = 0;
+
+			//Add Cubes
+			Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
+			cube_blue->set_color(blue());
+			scene3d.add_obect(cube_blue);
+
+			Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
+			cube_yellow->set_color(yellow());
+			scene3d.add_obect(cube_yellow);
+
+			Cube3D* cube_cyan = new Cube3D(scene3d.getCamera(), Vector3D(0, 5, 0), 1);
+			cube_cyan->set_color(cyan());
+			scene3d.add_obect(cube_cyan);
+
+			Cube3D* cube_pink = new Cube3D(scene3d.getCamera(), Vector3D(0, -5, 0), 1);
+			cube_pink->set_color(pink());
+			scene3d.add_obect(cube_pink);
 
 			//Add spaceship
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());

@@ -100,6 +100,9 @@
     <ClCompile Include="AidLine3D.cpp">
       <Filter>Objects\3D\CustomObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix2D.h">

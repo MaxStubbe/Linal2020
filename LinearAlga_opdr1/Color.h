@@ -7,4 +7,19 @@ struct Color {
 	int b;
 };
 
+Color blue();
+
+Color red();
+
+Color green();
+
+Color white();
+
+Color black();
+
+Color pink();
+
+Color cyan();
+
+Color yellow();
 #endif

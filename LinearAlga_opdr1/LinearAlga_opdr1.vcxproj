@@ -161,6 +161,7 @@
     <ClCompile Include="Basic_Matrices.cpp" />
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="Camera3D.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="Cube2D.cpp" />
     <ClCompile Include="Cube3D.cpp" />
     <ClCompile Include="LinearAlga_opdr1.cpp" />
