@@ -1,4 +1,5 @@
 #include "Object3D.h"
+#include "Basic_Matrices.h"
 
 Object3D::Object3D(Camera3D& camera, Vector3D position) : camera_(camera), position_(position)
 {
@@ -14,8 +15,11 @@ void Object3D::draw(SDL_Renderer& renderer)
 	for (auto& points : points_) {
 		std::vector<SDL_Point> sdl_points;
 		for (auto& point : points) {
+
+			Vector3D transformed_point = ((point - center_) * get_scale_matrix_3d(scale_.x)) +center_;
+
 			try {
-				sdl_points.push_back(camera_.get_sdl_point(point + position_));
+				sdl_points.push_back(camera_.get_sdl_point(transformed_point + position_));
 			}
 			catch(const char* msg) {
 				//cerr << msg << endl;

@@ -16,9 +16,9 @@ protected:
 
 	Vector3D center_;
 
-	Matrix3D scale_matrix_;
+	Vector3D scale_ = Vector3D(1,1,1);
 
-	Matrix3D rotation_matrix_;
+	Vector3D rotation_;
 
 	std::vector<std::vector<Vector3D>> points_;
 

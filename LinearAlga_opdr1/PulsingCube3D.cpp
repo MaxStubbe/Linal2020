@@ -1,7 +1,7 @@
 #include "PulsingCube3D.h"
 #include "Basic_Matrices.h"
 
-PulsingCube3D::PulsingCube3D(Camera3D& camera, Vector3D position, int size, int pulse_speed, int change_interval) : Object3D(camera, position), pulse_speed_(pulse_speed), change_interval_(change_interval)
+PulsingCube3D::PulsingCube3D(Camera3D& camera, Vector3D position, int size, int pulse_speed) : Object3D(camera, position), pulse_speed_(pulse_speed)
 {
 	center_ = Vector3D(size/2.0,size/2.0,size/2.0);
 
@@ -53,35 +53,28 @@ PulsingCube3D::PulsingCube3D(Camera3D& camera, Vector3D position, int size, int 
 	};
 	points_.push_back(bottom);
 
-	matrix_ = get_scale_matrix_3d(0.9);
 	scale_up_ = false;
 }
 
 void PulsingCube3D::update()
 {
-	do_matrix(get_rotation_matrix_3d_axis(Vector3D(1, 0, 0), 0.1));
-	/*if (!pulse_timer_.is_running()) {
+	//do_matrix(get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), 0.1));
+	if (!pulse_timer_.is_running()) {
 		pulse_timer_.start();
 	}
-	if (!change_timer_.is_running()) {
-		change_timer_.start();
-	}
-
 
 	if (pulse_timer_.get_ticks() >= pulse_speed_) {
-		do_matrix(matrix_);
+		if (scale_up_) {
+			current_scale_ = current_scale_ + Vector3D(0.01,0.01,0.01);
+		}
+		else {
+			current_scale_ = current_scale_ - Vector3D(0.01, 0.01, 0.01);
+		}
+		scale_ = current_scale_;
 		pulse_timer_.reset();
 	}
 
-	if (change_timer_.get_ticks() >= change_interval_) {
-		if (scale_up_) {
-			matrix_ = get_scale_matrix_3d(0.9);
-			scale_up_ = false;
-		}
-		else {
-			matrix_ = get_scale_matrix_3d(1.1);
-			scale_up_ = true;
-		}
-		change_timer_.reset();
-	}*/
+	if (current_scale_.x > 1 || current_scale_.x < 0.1) {
+		scale_up_ = !scale_up_;
+	}
 }
