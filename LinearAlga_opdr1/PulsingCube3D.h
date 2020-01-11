@@ -8,15 +8,13 @@ class PulsingCube3D : public Object3D
 {
 private:
 	Timer pulse_timer_ = Timer();
-	Timer change_timer_ = Timer();
 	int pulse_speed_;
-	int change_interval_;
 	bool scale_up_;
-	Matrix3D matrix_;
+	Vector3D current_scale_;
 
 
 public:
-	PulsingCube3D(Camera3D& camera, Vector3D position = Vector3D(), int size = 10, int pulse_speed = 50, int change_interval = 500);
+	PulsingCube3D(Camera3D& camera, Vector3D position = Vector3D(), int size = 10, int pulse_speed = 50);
 	void update() override;
 };
 

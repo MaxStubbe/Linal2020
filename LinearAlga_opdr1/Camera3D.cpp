@@ -58,16 +58,7 @@ SDL_Point Camera3D::get_sdl_point(Vector3D point)
 		int x = (screenSize / 2) + ((canvas_point.x) / canvas_point.w) * (screenSize / canvas_point.w);
 
 		int y = (screenSize / 2) + ((canvas_point.y) / canvas_point.w) * (screenSize / canvas_point.w);
-		
-		int z = -canvas_point.z;
 
-		int w = 1;
-
-		//test = Vector3D(x, y, z, w);
-
-		//Vector3D ortho_point = test * cam_matrix;
-
-		//return { (int)ortho_point.x,(int)ortho_point.y };
 		return { (int)x,(int)y };
 	}
 	//Als hepunt niet getekent hoeft te worden.
