@@ -100,10 +100,10 @@ Vector3D Object3D::get_forward()
 	Vector3D rotated_point = Vector3D(1,0,0) * get_rotation_matrix_3d_axis(forward_, rotation_.x);
 
 	//Y Rotation
-	rotated_point = rotated_point * get_rotation_matrix_3d_axis(forward_, rotation_.y);
+	rotated_point = rotated_point * get_rotation_matrix_3d_axis(up_, rotation_.y);
 
 	//Z Rotation
-	rotated_point = rotated_point * get_rotation_matrix_3d_axis(forward_, rotation_.z);
+	rotated_point = rotated_point * get_rotation_matrix_3d_axis(right_, rotation_.z);
 
 	return rotated_point;
 }

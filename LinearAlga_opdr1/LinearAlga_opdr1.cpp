@@ -60,7 +60,7 @@ int main(int argc, char* args[])
 			cube_blue->set_color(blue());
 			scene3d.add_object(cube_blue);
 
-			/*Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
+			Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
 			cube_yellow->set_color(yellow());
 			scene3d.add_object(cube_yellow);
 
@@ -78,7 +78,7 @@ int main(int argc, char* args[])
 
 			Cube3D* cube_lime = new Cube3D(scene3d.getCamera(), Vector3D(0, 0, -5), 1);
 			cube_lime->set_color(lime());
-			scene3d.add_object(cube_lime);*/
+			scene3d.add_object(cube_lime);
 
 			//Add spaceship
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());

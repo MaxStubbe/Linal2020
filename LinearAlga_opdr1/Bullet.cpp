@@ -1,11 +1,11 @@
 #include "Bullet.h"
 #include "Scene3D.h"
+#include <iostream>
 
 Bullet::Bullet(Scene3D* scene, Vector3D position, Vector3D rotation, float size, float speed_) : Object3D(scene->getCamera(), position), speed_(speed_), scene_(scene)
 {
 	center_ = Vector3D(size / 2.0, size / 2.0, size / 2.0);
 	rotation_ = rotation;
-
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),
 		Vector3D(size, 0, 0),
@@ -71,5 +71,6 @@ void Bullet::update()
 }
 
 void Bullet::on_collision() {
-
+	std::cout << "BIEM";
+	scene_->delete_object(this);
 }
