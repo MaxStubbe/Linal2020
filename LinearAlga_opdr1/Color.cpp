@@ -31,3 +31,13 @@ Color cyan() {
 Color yellow() {
 	return Color{ 255,255,0 };
 }
+
+Color orange()
+{
+	return Color{255,130,0};
+}
+
+Color lime()
+{
+	return Color{ 130,255,0 };
+}

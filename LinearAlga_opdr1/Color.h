@@ -22,4 +22,8 @@ Color pink();
 Color cyan();
 
 Color yellow();
+
+Color orange();
+
+Color lime();
 #endif

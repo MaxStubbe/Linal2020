@@ -98,3 +98,9 @@ Vector3D Vector3D::operator*(const Matrix3D& other)
 	}
 	return Vector3D(vector_[0], vector_[1],vector_[2], vector_[3]);
 }
+
+std::ostream& operator<<(std::ostream& os, const Vector3D& vector)
+{
+	os << " [ " << vector.x << " | " << vector.y << " | " << vector.y << " | " << vector.w << " ] ";
+	return os;
+}

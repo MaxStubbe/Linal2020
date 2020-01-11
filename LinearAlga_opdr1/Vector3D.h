@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include <SDL_main.h>
 #include "Matrix3D.h"
+#include <ostream>
 
 class Vector3D
 {
@@ -26,6 +27,7 @@ public:
 	Vector3D operator-(const Vector3D& other);
 	Vector3D operator*(const float scalar);
 	Vector3D operator*(const Matrix3D& other);
+	friend std::ostream& operator<<(std::ostream& os, const Vector3D& vector);
 };
 
 #endif

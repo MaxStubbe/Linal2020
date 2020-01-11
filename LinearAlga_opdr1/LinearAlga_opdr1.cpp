@@ -37,9 +37,9 @@ int main(int argc, char* args[])
 			scene3d.add_obect(cube3d);*/
 
 			//Set Camera Position
-			scene3d.getCamera().position_.x = 0;
-			scene3d.getCamera().position_.y = 0;
-			scene3d.getCamera().position_.z = 0;
+			//scene3d.getCamera().position_.x = 0;
+			//scene3d.getCamera().position_.y = 0;
+			//scene3d.getCamera().position_.z = 0;
 
 			//Add Cubes
 			Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
@@ -57,6 +57,14 @@ int main(int argc, char* args[])
 			Cube3D* cube_pink = new Cube3D(scene3d.getCamera(), Vector3D(0, -5, 0), 1);
 			cube_pink->set_color(pink());
 			scene3d.add_obect(cube_pink);
+
+			Cube3D* cube_orange = new Cube3D(scene3d.getCamera(), Vector3D(0, 0, 5), 1);
+			cube_orange->set_color(orange());
+			scene3d.add_obect(cube_orange);
+
+			Cube3D* cube_lime = new Cube3D(scene3d.getCamera(), Vector3D(0, 0, -5), 1);
+			cube_lime->set_color(lime());
+			scene3d.add_obect(cube_lime);
 
 			//Add spaceship
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());
@@ -138,6 +146,12 @@ int main(int argc, char* args[])
 							if (key == "I") {//turn right
 								scene3d.getCamera().rotate_y(-1);
 							}
+
+
+							std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";
+
+							std::cout << "Camera Position " << (scene3d.getCamera().position_) << "\n";
+
 
 							break;
 						}
