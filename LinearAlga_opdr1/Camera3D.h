@@ -14,6 +14,8 @@ public:
 
 	Matrix3D cam_matrix;
 
+	Matrix3D pro_matrix;
+
 	Camera3D(Vector3D position);
 
 	void set_matrix();

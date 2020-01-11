@@ -33,13 +33,13 @@ int main(int argc, char* args[])
 			Scene3D scene3d = Scene3D(*renderer);
 
 			//Add Animated Cube
-			/*PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1);
-			scene3d.add_obect(cube3d);*/
+			PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1);
+			scene3d.add_obect(cube3d);
 
 			//Set Camera Position
-			scene3d.getCamera().position_.x = 5;
-			scene3d.getCamera().position_.y = 5;
-			scene3d.getCamera().position_.z = 5;
+			scene3d.getCamera().position_.x = -50;
+			scene3d.getCamera().position_.y = 0;
+			scene3d.getCamera().position_.z = 0;
 
 			//Add Cubes
 			Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
@@ -155,8 +155,12 @@ int main(int argc, char* args[])
 							}
 
 							if (key == "R") {
-								scene3d.getCamera().position_ = Vector3D(1,1,1);
-								scene3d.getCamera().lookat_ = Vector3D(0,0,0);
+								scene3d.getCamera().position_ = Vector3D(0,0,0);
+								scene3d.getCamera().lookat_ = Vector3D(1,0,0);
+							}
+							if (key == "T") {
+								scene3d.getCamera().position_ = Vector3D(-36, 15, 22);
+								scene3d.getCamera().lookat_ = Vector3D(0.5, -7, -5.5);
 							}
 
 							std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";

@@ -3,6 +3,8 @@
 
 PulsingCube3D::PulsingCube3D(Camera3D& camera, Vector3D position, int size, int pulse_speed, int change_interval) : Object3D(camera, position), pulse_speed_(pulse_speed), change_interval_(change_interval)
 {
+	center_ = Vector3D(size/2.0,size/2.0,size/2.0);
+
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),
 		Vector3D(size, 0, 0),

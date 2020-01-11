@@ -14,6 +14,8 @@ protected:
 
 	Vector3D position_;
 
+	Vector3D center_;
+
 	Matrix3D scale_matrix_;
 
 	Matrix3D rotation_matrix_;
