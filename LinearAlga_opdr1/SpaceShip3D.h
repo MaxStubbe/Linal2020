@@ -20,6 +20,7 @@ public:
 	void rollright();
 	void shoot(Scene3D* scene);
 	void update() override;
+	void on_collision() override;
 };
 
 #endif

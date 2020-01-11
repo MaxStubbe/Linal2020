@@ -17,6 +17,7 @@ private:
 public:
 	Bullet(Scene3D* scene, Vector3D position, Vector3D rotation, float size = 1, float speed_ = 0.5);
 	void update() override;
+	void on_collision() override;
 };
 
 #endif

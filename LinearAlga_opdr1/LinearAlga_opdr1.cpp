@@ -47,8 +47,8 @@ int main(int argc, char* args[])
 			Scene3D scene3d = Scene3D(*renderer);
 
 			//Add Animated Cube
-			PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1,10);
-			scene3d.add_object(cube3d);
+			/*PulsingCube3D* cube3d = new PulsingCube3D(scene3d.getCamera(), Vector3D(-5,5,0),1,10);
+			scene3d.add_object(cube3d);*/
 
 			//Set Camera Position
 			scene3d.getCamera().position_.x = -50;
@@ -56,11 +56,11 @@ int main(int argc, char* args[])
 			scene3d.getCamera().position_.z = 0;
 
 			//Add Cubes
-			/*Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
+			Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
 			cube_blue->set_color(blue());
 			scene3d.add_object(cube_blue);
 
-			Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
+			/*Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
 			cube_yellow->set_color(yellow());
 			scene3d.add_object(cube_yellow);
 
@@ -85,14 +85,14 @@ int main(int argc, char* args[])
 			scene3d.add_object(ship);
 
 			//Add AidLine
-			AidLine3D* line_x = new AidLine3D(scene3d.getCamera(),Vector3D(500,0,0), Vector3D(-500,0,0));
+			/*AidLine3D* line_x = new AidLine3D(scene3d.getCamera(),Vector3D(500,0,0), Vector3D(-500,0,0));
 			scene3d.add_object(line_x);
 
 			AidLine3D* line_y = new AidLine3D(scene3d.getCamera(), Vector3D(0,500,0), Vector3D(0,-500, 0));
 			scene3d.add_object(line_y);
 
 			AidLine3D* line_z = new AidLine3D(scene3d.getCamera(), Vector3D(0, 0, 500), Vector3D(0, 0, -500));
-			scene3d.add_object(line_z);
+			scene3d.add_object(line_z);*/
 
 			//Event handler
 			SDL_Event event;

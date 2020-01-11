@@ -16,6 +16,7 @@ private:
 public:
 	PulsingCube3D(Camera3D& camera, Vector3D position = Vector3D(), int size = 10, int pulse_speed = 50);
 	void update() override;
+	void on_collision() override;
 };
 
 #endif

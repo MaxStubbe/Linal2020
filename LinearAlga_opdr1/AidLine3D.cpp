@@ -13,3 +13,7 @@ AidLine3D::AidLine3D(Camera3D& camera,Vector3D p1, Vector3D p2) : Object3D(camer
 void AidLine3D::update()
 {
 }
+
+void AidLine3D::on_collision()
+{
+}

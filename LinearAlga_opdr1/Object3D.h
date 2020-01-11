@@ -55,6 +55,8 @@ public:
 	bool collides_with(const Object3D& other);
 
 	float get_radius() const;
+
+	virtual void on_collision() = 0;
 };
 
 #endif

@@ -56,5 +56,9 @@ Cube3D::Cube3D(Camera3D& camera, Vector3D position, int size) : Object3D(camera,
 
 void Cube3D::update()
 {
-	collider_.set_collider(center_, size_);
+	collider_.set_collider(center_+position_, size_);
+}
+
+void Cube3D::on_collision()
+{
 }

@@ -82,3 +82,7 @@ void PulsingCube3D::update()
 
 	collider_.set_collider(center_, size_* current_scale_.x);
 }
+
+void PulsingCube3D::on_collision()
+{
+}

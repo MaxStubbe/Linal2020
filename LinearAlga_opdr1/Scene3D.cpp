@@ -49,6 +49,13 @@ void Scene3D::update()
 	for (auto& object : objects_) {
 		object->update();
 	}
+	for (auto& object1 : objects_) {
+		for (auto& object2 : objects_) {
+			if (object1 != object2)
+				if (object1->collides_with(*object2))
+					object1->on_collision();
+		}
+	}
 	looping = false;
 
 	

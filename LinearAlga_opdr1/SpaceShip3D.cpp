@@ -2,10 +2,11 @@
 #include "Basic_Matrices.h"
 #include "Scene3D.h"
 #include "Bullet.h"
+#include <iostream>
 
 SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera, position)
 {
-	size_ = 2.5;
+	size_ = 1;
 
 	color_.b = 0;
 	color_.g = 0;
@@ -168,5 +169,10 @@ void SpaceShip3D::shoot(Scene3D* scene)
 
 void SpaceShip3D::update()
 {
-	collider_.set_collider(center_, size_);
+	collider_.set_collider(center_ + position_, size_);
+}
+
+void SpaceShip3D::on_collision()
+{
+	std::cout << "Collision!";
 }

@@ -112,7 +112,7 @@ Vector3D Object3D::get_forward()
 bool Object3D::collides_with(const Object3D& other)
 {
 	return (
-		(center_.distance(other.center_) <= ( get_radius()+ other.get_radius())) && //Basic Check with circle around object
+		//((center_+position_).distance((other.center_+other.position_)) <= ( get_radius()+ other.get_radius())) && //Basic Check with circle around object
 		(collider_.collides_with(other.collider_))//Check with bounding box
 		);
 }

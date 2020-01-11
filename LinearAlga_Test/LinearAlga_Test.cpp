@@ -1,12 +1,14 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-//#include "../LinearAlga_opdr1/Vector3D.h"
 #include "../LinearAlga_opdr1/Vector3D.cpp"
 #include "../LinearAlga_opdr1/Vector2D.cpp"
 #include "../LinearAlga_opdr1//Matrix3D.cpp"
 #include "../LinearAlga_opdr1//Matrix2D.cpp"
 #include "../LinearAlga_opdr1/Basic_Matrices.cpp"
 #include "../LinearAlga_opdr1/BoundingBox3D.cpp"
+//#include "../LinearAlga_opdr1/Cube3D.cpp"
+//#include "../LinearAlga_opdr1/Camera3D.cpp"
+//#include "../LinearAlga_opdr1/Object3D.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -196,5 +198,16 @@ namespace LinearAlgaTest
 			col_2.set_collider(Vector3D(2.5, 2.5, 2.5), 1);
 			Assert::IsTrue(!col_1.collides_with(col_2));
 		}
+
+		/*TEST_METHOD(Collision_3)
+		{
+			Camera3D cam = Camera3D(Vector3D());
+			Cube3D col_1 = Cube3D(cam, Vector3D(),1);
+			Cube3D col_2 = Cube3D(cam, Vector3D(0.5,0.5,0.5), 1);
+			col_1.update();
+			col_2.update();
+			Assert::IsTrue(col_1.collides_with(col_2));
+		}*/
+
 	};
 }
