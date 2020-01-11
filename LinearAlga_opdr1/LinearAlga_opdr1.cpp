@@ -17,7 +17,7 @@
 /*
 Knockout Criterea: 1/1
 Code/Matrices: 1/1
-Bewegen Schip: 1.5/1.5 ALS DRAAIEN NETJES WERKT anders 0.68
+Bewegen Schip: 1.5/1.5 ALS DRAAIEN WWORDT GEACCEPTEERD WERKT anders 0.68
 Kogels afschieten 1.05/1.5 ALS VECTOR ALS MATRIX TELT DAN 1,5
 Pulserend doel: 1.5/1.5
 Doel Raken: 0.7/1 
