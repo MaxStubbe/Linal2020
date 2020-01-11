@@ -6,6 +6,7 @@
 #include "../LinearAlga_opdr1//Matrix3D.cpp"
 #include "../LinearAlga_opdr1//Matrix2D.cpp"
 #include "../LinearAlga_opdr1/Basic_Matrices.cpp"
+#include "../LinearAlga_opdr1/BoundingBox3D.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -170,6 +171,30 @@ namespace LinearAlgaTest
 				{0,0,0,2}
 			};
 			Assert::IsTrue((Matrix3D() * 2) == Matrix3D(matrix));
+		}
+	};
+
+
+	TEST_CLASS(Collision_Tests)
+	{
+	public:
+
+		TEST_METHOD(Collision_1)
+		{
+			BoundingBox3D col_1;
+			BoundingBox3D col_2;
+			col_1.set_collider(Vector3D(),1);
+			col_2.set_collider(Vector3D(0.5,0.5,0.5), 1);
+			Assert::IsTrue(col_1.collides_with(col_2));
+		}
+
+		TEST_METHOD(Collision_2)
+		{
+			BoundingBox3D col_1;
+			BoundingBox3D col_2;
+			col_1.set_collider(Vector3D(), 1);
+			col_2.set_collider(Vector3D(2.5, 2.5, 2.5), 1);
+			Assert::IsTrue(!col_1.collides_with(col_2));
 		}
 	};
 }

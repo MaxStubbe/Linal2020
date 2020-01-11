@@ -2,6 +2,8 @@
 
 Cube3D::Cube3D(Camera3D& camera, Vector3D position, int size) : Object3D(camera,position)
 {
+	size_ = size;
+
 	center_ = Vector3D(size / 2.0, size / 2.0, size / 2.0);
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),
@@ -54,5 +56,5 @@ Cube3D::Cube3D(Camera3D& camera, Vector3D position, int size) : Object3D(camera,
 
 void Cube3D::update()
 {
-
+	collider_.set_collider(center_, size_);
 }

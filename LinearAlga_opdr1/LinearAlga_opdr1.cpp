@@ -225,6 +225,11 @@ int main(int argc, char* args[])
 
 							std::cout << "Rotation: " << ship->rotation_ << "\n";
 
+							float dot = Vector3D(1, 0, 0).dot_product(ship->forward_);
+							float angle = acos(dot);
+							std::cout << "Forward: " << ship->forward_ << "\n";
+							std::cout << "Angle: " << radians_to_degrees(angle) << "\n";
+
 							break;
 						}
 					}

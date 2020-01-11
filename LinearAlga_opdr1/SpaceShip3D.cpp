@@ -5,6 +5,8 @@
 
 SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera, position)
 {
+	size_ = 2.5;
+
 	color_.b = 0;
 	color_.g = 0;
 	color_.r = 255;
@@ -126,30 +128,35 @@ void SpaceShip3D::down()
 {
 	rotation_.z -= 5;
 	rotation_.z = fmod(rotation_.z, 360.0f);
+	//do_rotation(get_rotation_matrix_3d_axis(Vector3D(0, 0, 1), -5));
 }
 
 void SpaceShip3D::left()
 {
 	rotation_.y += 5;
 	rotation_.y = fmod(rotation_.y, 360.0f);
+	//do_rotation(get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), 5));
 }
 
 void SpaceShip3D::right()
 {
 	rotation_.y -= 5;
 	rotation_.y = fmod(rotation_.y, 360.0f);
+	//do_rotation(get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), -5));
 }
 
 void SpaceShip3D::rollleft()
 {
 	rotation_.x += 5;
 	rotation_.x = fmod(rotation_.x, 360.0f);
+	//do_rotation(get_rotation_matrix_3d_axis(Vector3D(1, 0, 0), 5));
 }
 
 void SpaceShip3D::rollright()
 {
 	rotation_.x -= 5;
 	rotation_.x = fmod(rotation_.x, 360.0f);
+	//do_rotation(get_rotation_matrix_3d_axis(Vector3D(1, 0, 0), -5));
 }
 
 void SpaceShip3D::shoot(Scene3D* scene)
@@ -161,4 +168,5 @@ void SpaceShip3D::shoot(Scene3D* scene)
 
 void SpaceShip3D::update()
 {
+	collider_.set_collider(center_, size_);
 }

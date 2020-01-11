@@ -1,15 +1,19 @@
 #ifndef __BoundingBox3D_h__
 #define __BoundingBox3D_h__
 
-#include "Object3D.h"
+#include "Vector3D.h"
 
 class BoundingBox3D
 {
-	Object3D& object_;
-	float radius_;
+protected:
+	Vector3D p1;
+	Vector3D p2;
 public:
-	BoundingBox3D(Object3D& object);
+	BoundingBox3D();
 	bool collides_with(const BoundingBox3D& other);
+	void set_max_point(Vector3D point);
+	void set_min_point(Vector3D point);
+	void set_collider(Vector3D center, float size);
 };
 
 #endif

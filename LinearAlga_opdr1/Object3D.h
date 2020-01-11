@@ -5,13 +5,12 @@
 #include "Vector3D.h"
 #include "Color.h"
 #include "Camera3D.h"
-//#include "BoundingBox3D.h"
+#include "BoundingBox3D.h"
 
 
 class Object3D
 {
 protected:
-	//BoundingBox3D collider;
 
 	Camera3D& camera_;
 
@@ -19,7 +18,9 @@ protected:
 
 	Vector3D scale_ = Vector3D(1,1,1);
 
-	
+	BoundingBox3D collider_;
+
+	float size_;
 
 	std::vector<std::vector<Vector3D>> points_;
 
@@ -32,6 +33,8 @@ public:
 	Vector3D forward_ = Vector3D(1, 0, 0);
 
 	Vector3D up_ = Vector3D(0, 1, 0);
+
+	Vector3D right_ = Vector3D(0, 0, 1);
 
 	Object3D(Camera3D& camera, Vector3D position = Vector3D());
 
@@ -50,6 +53,8 @@ public:
 	Vector3D get_forward();
 
 	bool collides_with(const Object3D& other);
+
+	float get_radius() const;
 };
 
 #endif

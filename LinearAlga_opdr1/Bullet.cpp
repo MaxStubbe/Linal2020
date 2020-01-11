@@ -67,4 +67,5 @@ void Bullet::update()
 		scene_->delete_object(this);
 	}
 
+	collider_.set_collider(center_, size_);
 }

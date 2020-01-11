@@ -3,6 +3,8 @@
 
 PulsingCube3D::PulsingCube3D(Camera3D& camera, Vector3D position, int size, int pulse_speed) : Object3D(camera, position), pulse_speed_(pulse_speed)
 {
+	size_ = size;
+
 	center_ = Vector3D(size/2.0,size/2.0,size/2.0);
 
 	std::vector<Vector3D> front = {
@@ -77,4 +79,6 @@ void PulsingCube3D::update()
 	else if (current_scale_.x >= 1) {
 		scale_up_ = false;
 	}
+
+	collider_.set_collider(center_, size_* current_scale_.x);
 }

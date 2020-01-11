@@ -13,24 +13,27 @@ Object3D::Object3D(Camera3D& camera, Vector3D position, std::vector<std::vector<
 void Object3D::draw(SDL_Renderer& renderer)
 {
 	//Calculate rotation based on forward_ and up
-	Vector3D dir = forward_.normalize();
-	Vector3D right = up_.cross_product(dir).normalize();
-	Vector3D up = dir.cross_product(right).normalize();
+	//Vector3D forward = forward_.normalize();
+	//Vector3D Right = up_.cross_product(dir).normalize();
+	//Vector3D up = dir.cross_product(right).normalize();
 	//??? en nu??
 
 
 
-	Matrix3D rot_x_mat = get_rotation_matrix_3d_axis(Vector3D(1, 0, 0), rotation_.x);
+	Matrix3D rot_x_mat = get_rotation_matrix_3d_axis(forward_, rotation_.x);
 
-	Matrix3D rot_y_mat = get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), rotation_.y);
+	Matrix3D rot_y_mat = get_rotation_matrix_3d_axis(up_, rotation_.y);
 
-	Matrix3D rot_z_mat = get_rotation_matrix_3d_axis(Vector3D(0, 0, 1), rotation_.z);
+	Matrix3D rot_z_mat = get_rotation_matrix_3d_axis(right_, rotation_.z);
 
 	Matrix3D scale_mat = get_scale_matrix_3d(scale_);
 
 	for (auto& points : points_) {
 		std::vector<SDL_Point> sdl_points;
 		for (auto& point : points) {
+			//angle between normal forward and actual forward()
+			float dot = Vector3D(1, 0, 0).dot_product(forward_);
+			float angle = acos(dot);
 
 			//Point to origin
 			Vector3D origin_point = point - center_;
@@ -86,23 +89,21 @@ void Object3D::do_matrix(const Matrix3D& matrix)
 
 void Object3D::do_rotation(const Matrix3D& matrix)
 {
-	auto temp = forward_;
-	forward_ = (temp * matrix);
+	//do the rotations
+	forward_ = forward_ * matrix;
+	up_ = up_ * matrix;
+	right_ = right_ * matrix;
 }
 
 Vector3D Object3D::get_forward()
 {
-
-	Vector3D origin_point = Vector3D(1,0,0);
-
-	//X rotation
-	Vector3D rotated_point = origin_point * get_rotation_matrix_3d_axis(Vector3D(1, 0, 0), rotation_.x);
+	Vector3D rotated_point = Vector3D(1,0,0) * get_rotation_matrix_3d_axis(forward_, rotation_.x);
 
 	//Y Rotation
-	rotated_point = rotated_point * get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), rotation_.y);
+	rotated_point = rotated_point * get_rotation_matrix_3d_axis(forward_, rotation_.y);
 
 	//Z Rotation
-	rotated_point = rotated_point * get_rotation_matrix_3d_axis(Vector3D(0, 0, 1), rotation_.z);
+	rotated_point = rotated_point * get_rotation_matrix_3d_axis(forward_, rotation_.z);
 
 	return rotated_point;
 }
@@ -110,6 +111,14 @@ Vector3D Object3D::get_forward()
 
 bool Object3D::collides_with(const Object3D& other)
 {
-	return false;
+	return (
+		(center_.distance(other.center_) <= ( get_radius()+ other.get_radius())) && //Basic Check with circle around object
+		(collider_.collides_with(other.collider_))//Check with bounding box
+		);
+}
+
+float Object3D::get_radius() const
+{
+	return sqrt(size_ * size_ + size_ * size_);
 }
 
