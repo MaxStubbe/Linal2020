@@ -48,6 +48,7 @@ void Scene3D::update()
 	looping = true;
 	for (auto& object : objects_) {
 		object->update();
+		object->move();
 	}
 	for (auto& object1 : objects_) {
 		for (auto& object2 : objects_) {

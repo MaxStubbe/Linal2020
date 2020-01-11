@@ -53,11 +53,12 @@ Bullet::Bullet(Scene3D* scene, Vector3D position, Vector3D rotation, float size,
 		Vector3D(0, size, 0)
 	};
 	points_.push_back(bottom);
+	velocity_ = get_forward() * 0.005;
 }
 
 void Bullet::update()
 {
-	position_ = position_ + (get_forward() * speed_);
+	//position_ = position_ + (get_forward() * speed_);
 
 	if (!timer_.is_running()) {
 		timer_.start();

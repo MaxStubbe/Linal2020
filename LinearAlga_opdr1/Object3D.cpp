@@ -72,6 +72,16 @@ void Object3D::draw(SDL_Renderer& renderer)
 	}
 }
 
+void Object3D::add_force(Vector3D force)
+{
+	velocity_ = velocity_ + force;
+}
+
+void Object3D::move()
+{
+	position_ = position_ + velocity_;
+}
+
 void Object3D::set_color(Color color)
 {
 	color_ = color;

@@ -16,6 +16,8 @@ protected:
 
 	Vector3D position_;
 
+	Vector3D velocity_ = Vector3D(0, 0, 0);
+
 	Vector3D scale_ = Vector3D(1,1,1);
 
 	BoundingBox3D collider_;
@@ -41,6 +43,10 @@ public:
 	Object3D(Camera3D& camera, Vector3D position, std::vector<std::vector<Vector3D>> points);
 
 	void draw(SDL_Renderer& renderer);
+
+	void add_force(Vector3D force);
+
+	void move();
 
 	virtual void update() = 0;
 

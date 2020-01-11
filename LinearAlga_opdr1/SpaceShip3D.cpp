@@ -110,12 +110,20 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 
 void SpaceShip3D::forward()
 {
-	position_ = position_ +  (get_forward() * 0.2);
+	//position_ = position_ +  (get_forward() * 0.2);
+	velocity_ = velocity_ + (get_forward() * 0.002);
+	if (velocity_.magnitude() > 1) {
+		velocity_.normalize();
+	}
 }
 
 void SpaceShip3D::back()
 {
-	position_ = position_ + (get_forward() * -0.2);
+	//position_ = position_ + (get_forward() * -0.2);
+	velocity_ = velocity_ - (get_forward() * 0.002);
+	if (velocity_.magnitude() < 0) {
+		velocity_ = Vector3D(0, 0, 0);
+	}
 }
 
 void SpaceShip3D::up()
@@ -164,6 +172,7 @@ void SpaceShip3D::shoot(Scene3D* scene)
 {
 	Bullet* bullet = new Bullet(scene, position_+center_+(get_forward()), rotation_, 0.1, 0.01);
 	bullet->set_color(blue());
+	bullet->add_force(velocity_);
 	scene->add_object(bullet);
 }
 
