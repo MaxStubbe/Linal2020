@@ -16,10 +16,29 @@ void Object3D::draw(SDL_Renderer& renderer)
 		std::vector<SDL_Point> sdl_points;
 		for (auto& point : points) {
 
-			Vector3D transformed_point = ((point - center_) * get_scale_matrix_3d(scale_.x)) +center_;
+			//Point to origin
+			Vector3D origin_point = point - center_;
+
+			//X rotation
+			Vector3D rotated_point = origin_point * get_rotation_matrix_3d_axis(Vector3D(1,0,0),rotation_.x);
+
+			//Y Rotation
+			rotated_point = rotated_point * get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), rotation_.y);
+
+			//Z Rotation
+			rotated_point = rotated_point * get_rotation_matrix_3d_axis(Vector3D(0, 0, 1), rotation_.z);
+			
+			//Scale point.
+			Vector3D scaled_point = rotated_point * get_scale_matrix_3d(scale_.x);
+
+			//Back to position
+			rotated_point = rotated_point + center_;
+
+			//Transform point.
+			Vector3D transformed_point = scaled_point + position_;
 
 			try {
-				sdl_points.push_back(camera_.get_sdl_point(transformed_point + position_));
+				sdl_points.push_back(camera_.get_sdl_point(transformed_point));
 			}
 			catch(const char* msg) {
 				//cerr << msg << endl;

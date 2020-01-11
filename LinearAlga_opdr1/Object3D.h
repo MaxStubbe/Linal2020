@@ -18,7 +18,7 @@ protected:
 
 	Vector3D scale_ = Vector3D(1,1,1);
 
-	Vector3D rotation_;
+	Vector3D rotation_ = Vector3D(0,0,0);
 
 	std::vector<std::vector<Vector3D>> points_;
 
