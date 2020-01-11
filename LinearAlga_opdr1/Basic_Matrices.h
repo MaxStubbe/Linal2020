@@ -12,6 +12,8 @@ Matrix2D get_rotation_matrix_degrees(float degrees);
 
 Matrix3D get_scale_matrix_3d(float scale);
 
+Matrix3D get_scale_matrix_3d(Vector3D scale);
+
 Matrix3D get_rotation_matrix_3d_x(float degrees);
 
 Matrix3D get_rotation_matrix_3d_y(float degrees);

@@ -12,6 +12,14 @@ Object3D::Object3D(Camera3D& camera, Vector3D position, std::vector<std::vector<
 
 void Object3D::draw(SDL_Renderer& renderer)
 {
+	Matrix3D rot_x_mat = get_rotation_matrix_3d_axis(Vector3D(1, 0, 0), rotation_.x);
+
+	Matrix3D rot_y_mat = get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), rotation_.y);
+
+	Matrix3D rot_z_mat = get_rotation_matrix_3d_axis(Vector3D(0, 0, 1), rotation_.z);
+
+	Matrix3D scale_mat = get_scale_matrix_3d(scale_);
+
 	for (auto& points : points_) {
 		std::vector<SDL_Point> sdl_points;
 		for (auto& point : points) {
@@ -20,19 +28,16 @@ void Object3D::draw(SDL_Renderer& renderer)
 			Vector3D origin_point = point - center_;
 
 			//X rotation
-			Vector3D rotated_point = origin_point * get_rotation_matrix_3d_axis(Vector3D(1,0,0),rotation_.x);
+			Vector3D rotated_point = origin_point * rot_x_mat;
 
 			//Y Rotation
-			rotated_point = rotated_point * get_rotation_matrix_3d_axis(Vector3D(0, 1, 0), rotation_.y);
+			rotated_point = rotated_point * rot_y_mat;
 
 			//Z Rotation
-			rotated_point = rotated_point * get_rotation_matrix_3d_axis(Vector3D(0, 0, 1), rotation_.z);
+			rotated_point = rotated_point * rot_z_mat;
 			
 			//Scale point.
-			Vector3D scaled_point = rotated_point * get_scale_matrix_3d(scale_.x);
-
-			//Back to position
-			//scaled_point = scaled_point + center_;
+			Vector3D scaled_point = rotated_point * scale_mat;
 
 			//Transform point.
 			Vector3D transformed_point = scaled_point + position_ + center_;

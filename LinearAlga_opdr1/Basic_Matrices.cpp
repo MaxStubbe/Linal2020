@@ -25,6 +25,17 @@ Matrix3D get_scale_matrix_3d(float scale)
 	return Matrix3D() * scale;
 }
 
+Matrix3D get_scale_matrix_3d(Vector3D scale)
+{
+	float matrix[4][4] = {
+				{scale.x,0,0,0},
+				{0,scale.y,0,0},
+				{0,0,scale.z,0},
+				{0,0,0,1}
+	};
+	return Matrix3D(matrix);
+}
+
 Matrix3D get_rotation_matrix_3d_x(float degrees)
 {
 	float rad = degrees_to_radians(degrees);
