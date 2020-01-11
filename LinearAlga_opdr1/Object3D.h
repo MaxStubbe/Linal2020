@@ -19,13 +19,19 @@ protected:
 
 	Vector3D scale_ = Vector3D(1,1,1);
 
-	Vector3D rotation_ = Vector3D(0,0,0);
+	
 
 	std::vector<std::vector<Vector3D>> points_;
 
 	Color color_ = Color{ 255,255,255 };
 public:
 	Vector3D center_;
+
+	Vector3D rotation_ = Vector3D(0, 0, 0);
+
+	Vector3D forward_ = Vector3D(1, 0, 0);
+
+	Vector3D up_ = Vector3D(0, 1, 0);
 
 	Object3D(Camera3D& camera, Vector3D position = Vector3D());
 
@@ -38,6 +44,8 @@ public:
 	void set_color(Color color);
 
 	void do_matrix(const Matrix3D& matrix);
+
+	void do_rotation(const Matrix3D& matrix);
 
 	Vector3D get_forward();
 

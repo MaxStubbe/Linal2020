@@ -11,6 +11,8 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 
 	int size = 1;
 
+	rotation_.z = 180;
+
 	center_ = Vector3D(size / 2.0, size / 2.0, size / 2.0);
 
 	//Nose
@@ -116,31 +118,38 @@ void SpaceShip3D::back()
 void SpaceShip3D::up()
 {
 	rotation_.z += 5;
+	rotation_.z = fmod(rotation_.z,360.0f);
+	//do_rotation(get_rotation_matrix_3d_axis(Vector3D(0, 0, 1), 5));
 }
 
 void SpaceShip3D::down()
 {
 	rotation_.z -= 5;
+	rotation_.z = fmod(rotation_.z, 360.0f);
 }
 
 void SpaceShip3D::left()
 {
 	rotation_.y += 5;
+	rotation_.y = fmod(rotation_.y, 360.0f);
 }
 
 void SpaceShip3D::right()
 {
 	rotation_.y -= 5;
+	rotation_.y = fmod(rotation_.y, 360.0f);
 }
 
 void SpaceShip3D::rollleft()
 {
 	rotation_.x += 5;
+	rotation_.x = fmod(rotation_.x, 360.0f);
 }
 
 void SpaceShip3D::rollright()
 {
 	rotation_.x -= 5;
+	rotation_.x = fmod(rotation_.x, 360.0f);
 }
 
 void SpaceShip3D::shoot(Scene3D* scene)

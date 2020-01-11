@@ -217,11 +217,13 @@ int main(int argc, char* args[])
 							}
 
 
-							std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";
+							/*std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";
 
 							std::cout << "Camera Position " << (scene3d.getCamera().position_) << "\n";
 
-							std::cout << "Camera Up " << (scene3d.getCamera().up_) << "\n";
+							std::cout << "Camera Up " << (scene3d.getCamera().up_) << "\n";*/
+
+							std::cout << "Rotation: " << ship->rotation_ << "\n";
 
 							break;
 						}
