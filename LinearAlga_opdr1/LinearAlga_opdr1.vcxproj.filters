@@ -103,6 +103,9 @@
     <ClCompile Include="Color.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix2D.h">
@@ -157,6 +160,9 @@
       <Filter>Camera\3D</Filter>
     </ClInclude>
     <ClInclude Include="AidLine3D.h">
+      <Filter>Objects\3D\CustomObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
       <Filter>Objects\3D\CustomObjects</Filter>
     </ClInclude>
   </ItemGroup>

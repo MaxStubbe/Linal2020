@@ -2,6 +2,7 @@
 #define __SpaceShip3D_h__
 
 #include "Object3D.h"
+#include "Scene3D.h"
 
 class SpaceShip3D : public Object3D
 {
@@ -17,7 +18,7 @@ public:
 	void right();
 	void rollleft();
 	void rollright();
-	void shoot();
+	void shoot(Scene3D* scene);
 	void update() override;
 };
 

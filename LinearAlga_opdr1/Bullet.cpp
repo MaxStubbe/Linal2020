@@ -1,17 +1,10 @@
-#include "SpaceShip3D.h"
-#include "Basic_Matrices.h"
-#include "Scene3D.h"
 #include "Bullet.h"
+#include "Scene3D.h"
 
-SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera, position)
+Bullet::Bullet(Scene3D* scene, Vector3D position, Vector3D rotation, float size, float speed_) : Object3D(scene->getCamera(), position), speed_(speed_), scene_(scene)
 {
-	color_.b = 0;
-	color_.g = 0;
-	color_.r = 255;
-
-	int size = 1;
-
 	center_ = Vector3D(size / 2.0, size / 2.0, size / 2.0);
+	rotation_ = rotation;
 
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),
@@ -62,53 +55,16 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 	points_.push_back(bottom);
 }
 
-void SpaceShip3D::forward()
+void Bullet::update()
 {
-	position_ = position_ +  (get_forward() * -0.2);
-}
+	position_ = position_ + (get_forward() * -speed_);
 
-void SpaceShip3D::back()
-{
-	position_ = position_ + (get_forward() * 0.2);
-}
+	if (!timer_.is_running()) {
+		timer_.start();
+	}
 
-void SpaceShip3D::up()
-{
-	rotation_.z += 5;
-}
+	if (timer_.get_ticks() >= 1000) {
+		scene_->delete_object(this);
+	}
 
-void SpaceShip3D::down()
-{
-	rotation_.z -= 5;
-}
-
-void SpaceShip3D::left()
-{
-	rotation_.y += 5;
-}
-
-void SpaceShip3D::right()
-{
-	rotation_.y -= 5;
-}
-
-void SpaceShip3D::rollleft()
-{
-	rotation_.x += 5;
-}
-
-void SpaceShip3D::rollright()
-{
-	rotation_.x -= 5;
-}
-
-void SpaceShip3D::shoot(Scene3D* scene)
-{
-	Bullet* bullet = new Bullet(scene, position_, rotation_, 0.1, 0.01);
-	bullet->set_color(blue());
-	scene->add_object(bullet);
-}
-
-void SpaceShip3D::update()
-{
 }
