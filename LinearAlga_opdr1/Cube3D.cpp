@@ -2,6 +2,7 @@
 
 Cube3D::Cube3D(Camera3D& camera, Vector3D position, int size) : Object3D(camera,position)
 {
+	center_ = Vector3D(size / 2.0, size / 2.0, size / 2.0);
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),
 		Vector3D(size, 0, 0),

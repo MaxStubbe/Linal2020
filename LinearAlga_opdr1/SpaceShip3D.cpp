@@ -8,6 +8,8 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 
 	int size = 1;
 
+	center_ = Vector3D(size / 2.0, size / 2.0, size / 2.0);
+
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),
 		Vector3D(size, 0, 0),
