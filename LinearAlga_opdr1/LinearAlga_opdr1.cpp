@@ -147,6 +147,13 @@ int main(int argc, char* args[])
 								scene3d.getCamera().rotate_y(-1);
 							}
 
+							if (key == "O") {//roll left
+								scene3d.getCamera().rotate_z(1);
+							}
+							if (key == "U") {//roll right
+								scene3d.getCamera().rotate_z(-1);
+							}
+
 
 							std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";
 

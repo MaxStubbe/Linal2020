@@ -26,6 +26,8 @@ public:
 
 	void rotate_y(float degrees);
 
+	void rotate_z(float degrees);
+
 };
 
 #endif

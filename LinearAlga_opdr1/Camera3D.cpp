@@ -73,3 +73,16 @@ void Camera3D::rotate_y(float degrees)
 
 	lookat_ = (point * matrix) + position_;
 }
+
+void Camera3D::rotate_z(float degrees)
+{
+	Vector3D dir = get_direction().normalize();
+	Vector3D right = up_.cross_product(dir).normalize();
+	Vector3D up = dir.cross_product(right).normalize();
+
+	Vector3D point = up_ - position_;//Translate lookat to be relative to origin.
+	Matrix3D matrix = get_rotation_matrix_3d_axis(dir, degrees);
+
+	up_ = (point * matrix) + position_;
+
+}
