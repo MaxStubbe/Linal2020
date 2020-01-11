@@ -13,6 +13,47 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 
 	center_ = Vector3D(size / 2.0, size / 2.0, size / 2.0);
 
+	//Nose
+	std::vector<Vector3D> nose_l = {
+		Vector3D(size, 0, size),
+		Vector3D(size, size, size),
+		Vector3D(size+size, size / 2.0f , size / 2.0f)
+	};
+	points_.push_back(nose_l);
+
+	std::vector<Vector3D> nose_r = {
+		Vector3D(size, 0, 0),
+		Vector3D(size, size, 0),
+		Vector3D(size + size, size / 2.0f , size / 2.0f)
+	};
+	points_.push_back(nose_r);
+
+	//Top Finn
+	std::vector<Vector3D> fin = {
+		Vector3D(size, size, size / 2.0f),
+		Vector3D(0, size, size / 2.0f),
+		Vector3D(0, size + (size / 2.0f), size / 2.0f),
+		Vector3D(size, size + (size / 2.0f), size / 2.0f)
+	};
+	points_.push_back(fin);
+
+	//Right Wing
+	std::vector<Vector3D> wing_r = {
+		Vector3D(size, size / 2.0f, 0),
+		Vector3D(0, size / 2.0f, 0),
+		Vector3D(0, size / 2.0f, -size)
+	};
+	points_.push_back(wing_r);
+
+	//Right Wing
+	std::vector<Vector3D> wing_l = {
+		Vector3D(size, size / 2.0f, size),
+		Vector3D(0, size / 2.0f, size),
+		Vector3D(0, size / 2.0f, size+size)
+	};
+	points_.push_back(wing_l);
+
+	//Body
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),
 		Vector3D(size, 0, 0),
@@ -64,12 +105,12 @@ SpaceShip3D::SpaceShip3D(Camera3D& camera, Vector3D position) : Object3D(camera,
 
 void SpaceShip3D::forward()
 {
-	position_ = position_ +  (get_forward() * -0.2);
+	position_ = position_ +  (get_forward() * 0.2);
 }
 
 void SpaceShip3D::back()
 {
-	position_ = position_ + (get_forward() * 0.2);
+	position_ = position_ + (get_forward() * -0.2);
 }
 
 void SpaceShip3D::up()

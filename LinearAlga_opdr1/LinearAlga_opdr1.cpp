@@ -178,10 +178,10 @@ int main(int argc, char* args[])
 							if (key == "S") {//down
 								ship->down();
 							}
-							if (key == "D") {//left
+							if (key == "A") {//left
 								ship->left();
 							}
-							if (key == "A") {//right
+							if (key == "D") {//right
 								ship->right();
 							}
 							if (key == "Q") {//rollleft

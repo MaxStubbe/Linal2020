@@ -56,7 +56,7 @@ void Object3D::draw(SDL_Renderer& renderer)
 			SDL_SetRenderDrawColor(&renderer, color_.r, color_.g, color_.b, SDL_ALPHA_OPAQUE);
 
 			//Draw all the points.
-			SDL_RenderDrawLines(&renderer, &sdl_points[0], 5);
+			SDL_RenderDrawLines(&renderer, &sdl_points[0], sdl_points.size());
 		}
 	}
 }
