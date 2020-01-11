@@ -22,6 +22,12 @@ public:
 
 	Vector3D get_direction();
 
+	void move_x(float step);
+
+	void move_y(float step);
+
+	void move_z(float step);
+
 	void rotate_x(float degrees);
 
 	void rotate_y(float degrees);

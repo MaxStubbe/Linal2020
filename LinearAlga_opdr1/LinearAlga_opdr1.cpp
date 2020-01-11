@@ -37,9 +37,9 @@ int main(int argc, char* args[])
 			scene3d.add_obect(cube3d);*/
 
 			//Set Camera Position
-			//scene3d.getCamera().position_.x = 0;
-			//scene3d.getCamera().position_.y = 0;
-			//scene3d.getCamera().position_.z = 0;
+			scene3d.getCamera().position_.x = 5;
+			scene3d.getCamera().position_.y = 5;
+			scene3d.getCamera().position_.z = 5;
 
 			//Add Cubes
 			Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
@@ -70,9 +70,18 @@ int main(int argc, char* args[])
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());
 			scene3d.add_obect(ship);
 
+			SpaceShip3D* ship1 = new SpaceShip3D(scene3d.getCamera(), Vector3D(100,0,0));
+			scene3d.add_obect(ship1);
+
 			//Add AidLine
-			AidLine3D* line = new AidLine3D(scene3d.getCamera());
-			scene3d.add_obect(line);
+			AidLine3D* line_x = new AidLine3D(scene3d.getCamera(),Vector3D(500,0,0), Vector3D(-500,0,0));
+			scene3d.add_obect(line_x);
+
+			AidLine3D* line_y = new AidLine3D(scene3d.getCamera(), Vector3D(0,500,0), Vector3D(0,-500, 0));
+			scene3d.add_obect(line_y);
+
+			AidLine3D* line_z = new AidLine3D(scene3d.getCamera(), Vector3D(0, 0, 500), Vector3D(0, 0, -500));
+			scene3d.add_obect(line_z);
 
 			//Event handler
 			SDL_Event event;
@@ -106,28 +115,22 @@ int main(int argc, char* args[])
 							std::string key(SDL_GetKeyName(event.key.keysym.sym));
 
 							if (key == "Left") {
-								scene3d.getCamera().position_.x += 1;
-								scene3d.getCamera().lookat_.x += 1;
+								scene3d.getCamera().move_x(-1);
 							}
 							if (key == "Up") {
-								scene3d.getCamera().position_.y -= 1;
-								scene3d.getCamera().lookat_.y -= 1;
+								scene3d.getCamera().move_y(-1);
 							}
 							if (key == "Down") {
-								scene3d.getCamera().position_.y += 1;
-								scene3d.getCamera().lookat_.y += 1;
+								scene3d.getCamera().move_y(1);
 							}
 							if (key == "Right") {
-								scene3d.getCamera().position_.x -= 1;
-								scene3d.getCamera().lookat_.x -= 1;
+								scene3d.getCamera().move_x(1);
 							}
 							if (key == ",") {
-								scene3d.getCamera().position_.z -= 1;
-								scene3d.getCamera().lookat_.z -= 1;
+								scene3d.getCamera().move_z(-1);
 							}
 							if (key == ".") {
-								scene3d.getCamera().position_.z += 1;
-								scene3d.getCamera().lookat_.z += 1;
+								scene3d.getCamera().move_z(1);
 							}
 
 							if (key == "J") {//turn up
@@ -149,6 +152,11 @@ int main(int argc, char* args[])
 							}
 							if (key == "U") {//roll right
 								scene3d.getCamera().rotate_z(-1);
+							}
+
+							if (key == "R") {
+								scene3d.getCamera().position_ = Vector3D(1,1,1);
+								scene3d.getCamera().lookat_ = Vector3D(0,0,0);
 							}
 
 							std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";

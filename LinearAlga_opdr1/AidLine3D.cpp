@@ -1,29 +1,12 @@
 #include "AidLine3D.h"
 
-AidLine3D::AidLine3D(Camera3D& camera) : Object3D(camera,Vector3D())
+AidLine3D::AidLine3D(Camera3D& camera,Vector3D p1, Vector3D p2) : Object3D(camera,Vector3D())
 {
-	color_.b = 0;
-	color_.g = 255;
-	color_.r = 0;
-
-	std::vector<Vector3D> front = {
-		Vector3D(-100, 0, 0),
-		Vector3D(100, 0, 0)
+	std::vector<Vector3D> line = {
+		Vector3D(p1.x, p1.y, p1.z),
+		Vector3D(p2.x, p2.y, p2.z)
 	};
-	points_.push_back(front);
-
-	std::vector<Vector3D> back = {
-		Vector3D(0, -100, 0),
-		Vector3D(0, 100, 0)
-	};
-	points_.push_back(back);
-
-	std::vector<Vector3D> left = {
-		Vector3D(0, 0, -100),
-		Vector3D(0, 0, 100)
-	};
-	points_.push_back(left);
-
+	points_.push_back(line);
 }
 
 void AidLine3D::update()
