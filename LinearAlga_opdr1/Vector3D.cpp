@@ -112,6 +112,11 @@ Vector3D Vector3D::operator*(const Matrix3D& other)
 	return Vector3D(vector_[0], vector_[1],vector_[2], vector_[3]);
 }
 
+Vector3D Vector3D::flip()
+{
+	return Vector3D(-x,-y,-z,-w);
+}
+
 float Vector3D::distance(const Vector3D& other)
 {
 	return sqrt((x - other.x) * (x - other.x) + (y - other.y) * (y - other.y) + (z - other.z) * (z - other.z));

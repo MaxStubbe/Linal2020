@@ -57,7 +57,7 @@ Bullet::Bullet(Scene3D* scene, Vector3D position, Vector3D rotation, float size,
 
 void Bullet::update()
 {
-	position_ = position_ + (get_forward() * -speed_);
+	position_ = position_ + (get_forward() * speed_);
 
 	if (!timer_.is_running()) {
 		timer_.start();

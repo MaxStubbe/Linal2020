@@ -28,6 +28,7 @@ public:
 	Vector3D operator*(const float scalar);
 	Vector3D operator/(const float scalar);
 	Vector3D operator*(const Matrix3D& other);
+	Vector3D flip();
 	float distance(const Vector3D& other);
 	friend std::ostream& operator<<(std::ostream& os, const Vector3D& vector);
 };

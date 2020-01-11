@@ -162,7 +162,7 @@ void SpaceShip3D::rollright()
 
 void SpaceShip3D::shoot(Scene3D* scene)
 {
-	Bullet* bullet = new Bullet(scene, position_+(get_forward() *1.2), rotation_, 0.1, 0.01);
+	Bullet* bullet = new Bullet(scene, position_+center_+(get_forward()), rotation_, 0.1, 0.01);
 	bullet->set_color(blue());
 	scene->add_object(bullet);
 }

@@ -20,12 +20,12 @@ Code/Matrices: 1/1
 Bewegen Schip: 1.05/1.5
 Kogels afschieten 0.68/1.5
 Pulserend doel: 1.5/1.5
-Doel Raken: 0/1
+Doel Raken: 0.7/1
 Unit Tests: 0.7/1
 Camera in 3D Wereld: 0.5/0.5
 Overig: 0/1
 
-Totaal: 6.43/10
+Totaal: /10
 */
 
 int main(int argc, char* args[])
