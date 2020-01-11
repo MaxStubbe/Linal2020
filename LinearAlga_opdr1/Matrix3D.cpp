@@ -97,6 +97,18 @@ Matrix3D Matrix3D::operator/(const float& scalar)
 	return matrix;
 }
 
+bool Matrix3D::operator==(const Matrix3D& other)
+{
+	for (int row = 0; row < 4; ++row) {
+		for (int collum = 0; collum < 4; ++collum) {
+			if (matrix_[row][collum] != other.matrix_[row][collum]) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 std::ostream& operator<<(std::ostream& os, const Matrix3D& matrix)
 {
 

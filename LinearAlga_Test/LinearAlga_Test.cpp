@@ -2,14 +2,21 @@
 #include "CppUnitTest.h"
 //#include "../LinearAlga_opdr1/Vector3D.h"
 #include "../LinearAlga_opdr1/Vector3D.cpp"
+#include "../LinearAlga_opdr1//Matrix3D.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace LinearAlgaTest
 {
-	TEST_CLASS(LinearAlgaTest)
+	TEST_CLASS(Vector_Tests)
 	{
 	public:
+		TEST_METHOD(Vector_Compare)
+		{
+			Vector3D v1 = Vector3D(1, 1, 1);
+			Vector3D v2 = Vector3D(1, 1, 1);
+			Assert::IsTrue(v1 == v2);
+		}
 		
 		TEST_METHOD(Vector_Add)
 		{
@@ -76,6 +83,22 @@ namespace LinearAlgaTest
 			Vector3D v2 = Vector3D(1, 0, 0);
 			Vector3D v3 = v1.normalize();
 			Assert::IsTrue(v3 == v2);
+		}
+	};
+
+	TEST_CLASS(Matrix_Tests)
+	{
+	public:
+
+		TEST_METHOD(Matrix_Compare)
+		{
+			float matrix[4][4] = {
+				{1,0,0,0},
+				{0,1,0,0},
+				{0,0,1,0},
+				{0,0,0,1}
+			};
+			Assert::IsTrue(Matrix3D(matrix) == Matrix3D());
 		}
 	};
 }
