@@ -87,16 +87,6 @@ int main(int argc, char* args[])
 			SpaceShip3D* ship = new SpaceShip3D(scene3d.getCamera(), Vector3D());
 			scene3d.add_object(ship);
 
-			//Add AidLine
-			/*AidLine3D* line_x = new AidLine3D(scene3d.getCamera(),Vector3D(500,0,0), Vector3D(-500,0,0));
-			scene3d.add_object(line_x);
-
-			AidLine3D* line_y = new AidLine3D(scene3d.getCamera(), Vector3D(0,500,0), Vector3D(0,-500, 0));
-			scene3d.add_object(line_y);
-
-			AidLine3D* line_z = new AidLine3D(scene3d.getCamera(), Vector3D(0, 0, 500), Vector3D(0, 0, -500));
-			scene3d.add_object(line_z);*/
-
 			//Event handler
 			SDL_Event event;
 
@@ -140,10 +130,10 @@ int main(int argc, char* args[])
 							if (key == "Right") {
 								scene3d.getCamera().move_x(1);
 							}
-							if (key == "PageUp") {
+							if (key == "[") {
 								scene3d.getCamera().move_z(-1);
 							}
-							if (key == "PageDown") {
+							if (key == "]") {
 								scene3d.getCamera().move_z(1);
 							}
 
@@ -225,20 +215,6 @@ int main(int argc, char* args[])
 							if (key == "M") {
 								cube_pink->rotation_.y += 5;
 							}
-
-
-							/*std::cout << "Camera Lookat " << (scene3d.getCamera().lookat_) << "\n";
-
-							std::cout << "Camera Position " << (scene3d.getCamera().position_) << "\n";
-
-							std::cout << "Camera Up " << (scene3d.getCamera().up_) << "\n";*/
-
-							std::cout << "Rotation: " << ship->rotation_ << "\n";
-
-							float dot = Vector3D(1, 0, 0).dot_product(ship->forward_);
-							float angle = acos(dot);
-							std::cout << "Forward: " << ship->forward_ << "\n";
-							std::cout << "Angle: " << radians_to_degrees(angle) << "\n";
 
 							break;
 						}

@@ -54,8 +54,6 @@ public:
 
 	void do_matrix(const Matrix3D& matrix);
 
-	void do_rotation(const Matrix3D& matrix);
-
 	Vector3D get_forward();
 
 	bool collides_with(const Object3D& other);

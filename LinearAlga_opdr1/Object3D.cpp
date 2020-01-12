@@ -99,16 +99,9 @@ void Object3D::do_matrix(const Matrix3D& matrix)
 	}
 }
 
-void Object3D::do_rotation(const Matrix3D& matrix)
-{
-	//do the rotations
-	forward_ = forward_ * matrix;
-	up_ = up_ * matrix;
-	right_ = right_ * matrix;
-}
-
 Vector3D Object3D::get_forward()
 {
+	//X Rotation
 	Vector3D rotated_point = Vector3D(1,0,0) * get_rotation_matrix_3d_axis(forward_, rotation_.x);
 
 	//Y Rotation
@@ -123,10 +116,7 @@ Vector3D Object3D::get_forward()
 
 bool Object3D::collides_with(const Object3D& other)
 {
-	return (
-		//((center_+position_).distance((other.center_+other.position_)) <= ( get_radius()+ other.get_radius())) && //Basic Check with circle around object
-		(collider_.collides_with(other.collider_))//Check with bounding box
-		);
+	return collider_.collides_with(other.collider_);
 }
 
 float Object3D::get_radius() const

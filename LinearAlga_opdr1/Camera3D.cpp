@@ -138,5 +138,4 @@ void Camera3D::rotate_z(float degrees)
 	Matrix3D matrix = get_rotation_matrix_3d_axis(dir, degrees);
 
 	up_ = (point * matrix) + position_;
-
 }

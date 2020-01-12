@@ -5,7 +5,9 @@
 Bullet::Bullet(Scene3D* scene, Vector3D position, Vector3D rotation, float size, float speed_) : Object3D(scene->getCamera(), position), speed_(speed_), scene_(scene)
 {
 	center_ = Vector3D(size / 2.0, size / 2.0, size / 2.0);
+
 	rotation_ = rotation;
+
 	std::vector<Vector3D> front = {
 		Vector3D(0, 0, 0),
 		Vector3D(size, 0, 0),
@@ -58,13 +60,11 @@ Bullet::Bullet(Scene3D* scene, Vector3D position, Vector3D rotation, float size,
 
 void Bullet::update()
 {
-	//position_ = position_ + (get_forward() * speed_);
-
 	if (!timer_.is_running()) {
 		timer_.start();
 	}
 
-	if (timer_.get_ticks() >= 1000) {
+	if (timer_.get_ticks() >= 3000) {
 		scene_->delete_object(this);
 	}
 
