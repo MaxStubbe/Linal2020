@@ -12,14 +12,6 @@ Object3D::Object3D(Camera3D& camera, Vector3D position, std::vector<std::vector<
 
 void Object3D::draw(SDL_Renderer& renderer)
 {
-	//Calculate rotation based on forward_ and up
-	//Vector3D forward = forward_.normalize();
-	//Vector3D Right = up_.cross_product(dir).normalize();
-	//Vector3D up = dir.cross_product(right).normalize();
-	//??? en nu??
-
-
-
 	Matrix3D rot_x_mat = get_rotation_matrix_3d_x(rotation_.x);//get_rotation_matrix_3d_axis(forward_, rotation_.x);
 
 	Matrix3D rot_y_mat = get_rotation_matrix_3d_y(rotation_.y);//get_rotation_matrix_3d_axis(up_, rotation_.y);
@@ -33,12 +25,8 @@ void Object3D::draw(SDL_Renderer& renderer)
 	for (auto& points : points_) {
 		std::vector<SDL_Point> sdl_points;
 		for (auto& point : points) {
-			//angle between normal forward and actual forward()
-			float dot = Vector3D(1, 0, 0).dot_product(forward_);
-			float angle = acos(dot);
-
 			//Point relative to origin
-			Vector3D origin_point = point - center_;
+			Vector3D origin_point = point - center_;	//point* get_move_matrix_3d(center_.flip());
 
 			//X rotation
 			Vector3D rotated_point = origin_point * rot_x_mat;
@@ -53,13 +41,12 @@ void Object3D::draw(SDL_Renderer& renderer)
 			Vector3D scaled_point = rotated_point * scale_mat;
 
 			//Translate point back.
-			Vector3D transformed_point = scaled_point + position_ + center_;
+			Vector3D transformed_point = scaled_point + position_ + center_;	//scaled_point * get_move_matrix_3d(position_ + center_);
 
 			try {
 				sdl_points.push_back(camera_.get_sdl_point(transformed_point));
 			}
 			catch(const char* msg) {
-				//cerr << msg << endl;
 			}
 		}
 

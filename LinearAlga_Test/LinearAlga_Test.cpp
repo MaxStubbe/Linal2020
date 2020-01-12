@@ -199,15 +199,5 @@ namespace LinearAlgaTest
 			Assert::IsTrue(!col_1.collides_with(col_2));
 		}
 
-		/*TEST_METHOD(Collision_3)
-		{
-			Camera3D cam = Camera3D(Vector3D());
-			Cube3D col_1 = Cube3D(cam, Vector3D(),1);
-			Cube3D col_2 = Cube3D(cam, Vector3D(0.5,0.5,0.5), 1);
-			col_1.update();
-			col_2.update();
-			Assert::IsTrue(col_1.collides_with(col_2));
-		}*/
-
 	};
 }

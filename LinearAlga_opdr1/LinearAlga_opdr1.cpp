@@ -14,32 +14,13 @@
 #include "SpaceShip3D.h"
 #include "AidLine3D.h"
 
-/*
-Knockout Criterea: 1/1
-Code/Matrices: 1/1
-Bewegen Schip: 1.5/1.5 ALS DRAAIEN WWORDT GEACCEPTEERD WERKT anders 0.68
-Kogels afschieten 1.05/1.5 ALS VECTOR ALS MATRIX TELT DAN 1,5
-Pulserend doel: 1.5/1.5
-Doel Raken: 0.7/1 
-Unit Tests: 0.7/1
-Camera in 3D Wereld: 0.5/0.5
-Overig: 0/1
-
-Waarschijnlijk: 7.95/10 
-Worst case nu: 7.13/10
-*/
-
 int main(int argc, char* args[])
 {
 	if (SDL_Init(SDL_INIT_VIDEO) == 0) {
-		SDL_Window* window = NULL;
-		SDL_Renderer* renderer = NULL;
+		SDL_Window* window = nullptr;
+		SDL_Renderer* renderer = nullptr;
 		int WINDOWWIDTH = 600;
 		int WINDOWHEIGHT = 600;
-		float scale = 1;
-		float posx = 0;
-		float posy = 0;
-		float rot = 0;
 		if (SDL_CreateWindowAndRenderer(WINDOWWIDTH, WINDOWHEIGHT, 0, &window, &renderer) == 0) {
 			//Main loop flag
 			bool quit = false;
@@ -60,10 +41,6 @@ int main(int argc, char* args[])
 			Cube3D* cube_blue = new Cube3D(scene3d.getCamera(), Vector3D(5, 0, 0), 1);
 			cube_blue->set_color(blue());
 			scene3d.add_object(cube_blue);
-
-			/*Cube3D* cube_yellow = new Cube3D(scene3d.getCamera(), Vector3D(-5, 0, 0), 1);
-			cube_yellow->set_color(yellow());
-			scene3d.add_object(cube_yellow);*/
 
 			Cube3D* cube_cyan = new Cube3D(scene3d.getCamera(), Vector3D(0, 5, 0), 1);
 			cube_cyan->set_color(cyan());
@@ -90,13 +67,7 @@ int main(int argc, char* args[])
 			//Event handler
 			SDL_Event event;
 
-			Matrix3D scale_times_two_matrix = Matrix3D() * 2;
-
-			Matrix3D scale_times_half_matrix = Matrix3D() / 2;
-
-
 			scene3d.getCamera().set_matrix();
-
 
 			//While application is running
 			while (!quit)
@@ -137,17 +108,17 @@ int main(int argc, char* args[])
 								scene3d.getCamera().move_z(1);
 							}
 
-							if (key == "J") {//turn up
+							if (key == "J") {//turn left
 								scene3d.getCamera().rotate_x(1);
 							}
-							if (key == "L") {//turn down
+							if (key == "L") {//turn right
 								scene3d.getCamera().rotate_x(-1);
 							}
 
-							if (key == "K") {//turn left
+							if (key == "K") {//turn down
 								scene3d.getCamera().rotate_y(1);
 							}
-							if (key == "I") {//turn right
+							if (key == "I") {//turn up
 								scene3d.getCamera().rotate_y(-1);
 							}
 
@@ -210,10 +181,6 @@ int main(int argc, char* args[])
 
 							if (key == "P") {
 								scene3d.getCamera().perspective_ = !scene3d.getCamera().perspective_;
-							}
-
-							if (key == "M") {
-								cube_pink->rotation_.y += 5;
 							}
 
 							break;
